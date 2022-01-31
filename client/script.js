@@ -55,3 +55,13 @@ gifSearchButton.addEventListener("click", (e) => {
   document.getElementById("closeButton").addEventListener("click", () => {
     document.getElementById("gifPopup").style.display = "none";
   });
+
+  // Calculate remaining characters
+  newPostText.addEventListener("input", (e) => {
+    const target = e.target;
+    const maxLength = target.getAttribute("maxlength");
+    let currentLength = target.value.length;
+    counterPost.textContent = `${maxLength - currentLength} characters remaining`;
+    // Button is enabled since textarea has text:
+    addPostButton.disabled = false;
+  });
