@@ -7,21 +7,21 @@ const axios = require('axios').default;
 
 app.use(cors());
 app.use(express.json());
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN.TLD"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN.TLD"); // update to match the domain you will make the request from
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
 
-app.use(cors());
-app.use(express.json());
+// app.use(cors());
+// app.use(express.json());
 
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN.TLD"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN.TLD"); // update to match the domain you will make the request from
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
 
 //check
 app.get("/", (req, res) => {
@@ -32,6 +32,7 @@ app.get("/", (req, res) => {
 app.get("/posts", (req, res) => {
   res.send(Post.all);
 });
+
 
 // get a specific post
 app.get("/posts/:id", (req, res) => {
@@ -115,7 +116,7 @@ app.get("/gifs/:search", (req, res) => {
 
 //POST
 app.post("/posts/new", (req, res) => {
-
+  
   Post.addPost(req.body);
   res.statusCode = 201;
   res.send(Post.all);

@@ -24,7 +24,8 @@ function submitPost(e){
   e.preventDefault();
 
   const postData = {
-      message: e.target.querySelector(".newPostText").value,
+    message: e.target.querySelector(".newPostText").value,
+
   };
 
   const options = { 
@@ -45,6 +46,7 @@ function submitPost(e){
 function appendPosts(posts){
   posts.forEach(appendPost);
 };
+
 
 function appendPost(postData){
   const newLi = document.createElement('li');
@@ -82,12 +84,12 @@ function createPost(data) {
     }
 }
 
-function appendPost(postData){
-    const newDiv = document.createElement('div');
-    // newDiv.textContent = ;
-    const postsList = document.querySelector('.post-message');
-    postsList.append(newLi);
-} 
+// function appendPost(postData){
+//     const newDiv = document.createElement('div');
+//     // newDiv.textContent = ;
+//     const postsList = document.querySelector('.post-message');
+//     postsList.append(newLi);
+// } 
 
 // function addElement(e) {
 //   // create a new div element
