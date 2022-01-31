@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script defer src="bundle.js"></script>
+
     <script defer src="script.js"></script>
 
 </head>
@@ -41,7 +41,7 @@
         <div id="charCounterPost">140 characters remaining</div>
         <form class="main-form">
           <textarea
-            class="newPostText"
+            id="newPostText"
             maxlength="140"
             type="text"
             required
@@ -51,7 +51,6 @@
             onclick="this.placeholder=''"
             onblur="this.placeholder='share your stories here...'"
           ></textarea>
-          <button id="btn">Submit Post</button>
         </form>
 
     <section id="gifBox" class="overlay">
