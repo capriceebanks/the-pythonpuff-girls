@@ -12,7 +12,6 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
-=======
 
 app.use(cors());
 app.use(express.json());
@@ -84,11 +83,7 @@ app.get("/posts/comments/:id", (req, res) => {
     res.send(error.message);
   }
 });
-
-app.get("/gifs/:search", (req, res) => {
-  try {
-    const search = req.params.search;
-    
+   
 app.get("/gifs/:search", (req, res) => {
 
   try {
@@ -110,12 +105,7 @@ app.get("/gifs/:search", (req, res) => {
     res.send(error.message)
   }
 })
-//POST
-app.post("/posts/new", (req, res) => {
-=======
-  
-  
-})
+
 
 //POST
 app.post("/posts/new", (req, res) => {
@@ -141,11 +131,6 @@ app.post("/posts/comments/new/:id", (req, res) => {
     res.send(error.message);
   }
 });
-
-//UPDATE
-app.put("/posts/reactions/update/:id", (req, res) => {
-  try {
-=======
 
 //UPDATE
 app.put("/posts/reactions/update/:id", (req, res) => {
