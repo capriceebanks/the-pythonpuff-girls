@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,8 +8,9 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <script defer src="script.js"></script>
+    <script defer src="script2.js"></script>
 </head>
 
 <body>
@@ -18,10 +20,12 @@
         <ul class="links-container">
             <li class="link-item"><a href="/" class="link">home</a></li>
         </ul>
+        
+        <input type="search" id="search" placeholder="Search here">
     </nav>
 
     <header class="header">
-        <div class="content">
+        <div>
             <h1 class="heading">
                 <span class="small">The Python-Puff Girls welcome you to the world of</span>
                 <span>journal writing</span>
@@ -32,29 +36,85 @@
 
     <section id="form">
         <div id="charCounterPost">140 characters remaining</div>
-        <form action="submit" class="main-form">
+        <form class="main-form">
           <textarea
             id="newPostText"
             maxlength="140"
             type="text"
             required
+            rows="10"
+            cols="50"
             placeholder="share your stories here..."
             onclick="this.placeholder=''"
             onblur="this.placeholder='share your stories here...'"
           ></textarea>
+          <button id="btn">Submit Post</button>
         </form>
-        <section id="gifBox" class="overlay">
+
+        <!-- <section id="gifBox" class="overlay">
           <label for="gifSearch">Search for a gif</label>
           <input type="text" name="gifSearch" id="gifSearch" />
           <button id="gifSearchButton">SEARCH</button>
           <button id="closeButton">CLOSE</button>
           <div id="gifs"></div>
-        </section>
-        <button id="addGif">Add Gif</button>
+        </section> -->
+        <!-- <button id="addGif">Add Gif</button>
         <button class="add-button" type="submit" id="formSubmit">
           Add Post
-        </button>
+        </button> -->
       </section>
+      <!-- Cards Section -->
+      <div></div>
+      <div class="row m-2">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card 1</h5>
+              <p class="card-text" id="newPost"></p>
+              <a href="#" class="btn btn-primary">Comment</a>
+            </div>
+          </div>
+        </div>
+      <div class="row m-2">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card 1</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Comment</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card 2</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Comment</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row m-2">
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card 3</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Comment</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Card 4</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Comment</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </body>
 </html>
 
