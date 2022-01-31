@@ -102,7 +102,30 @@ img {
     text-transform: capitalize;
 }
 
-
+.overlay {
+    position: fixed;
+    display: none;
+    width: 60%;
+    height: 50vh;
+    top: 3%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(226, 240, 203, 0.8);
+    z-index: 2;
+    cursor: pointer;
+    contain: content;
+    padding-bottom: 4rem;
+  }
+  
+  .overlay button:hover {
+    background-color: antiquewhite;
+    font-weight: bold;
+  }
+  
+  .overlay input:hover {
+    background-color: azure;
+  }
 
 /* gif stuff - not working atm :( */
 #gifPopup label {
@@ -166,3 +189,73 @@ section {
     width: 70%;
     margin: 3rem auto 0;
 }
+
+
+.emoji {
+    /* background-color: burlywood; */
+    width: 30px;
+    height: 30px;
+  }
+  
+  div.emoji1 {
+    background-image: url('./images/emoji1.png');
+    background-size: cover;
+  
+  }
+  
+  div.emoji2 {
+    background-image: url('./images/emoji2.png');
+    background-size: cover;
+  
+  }
+  
+  div.emoji3 {
+    background-image: url('./images/emoji3.png');
+    background-size: cover;
+  
+  }
+  
+  .emoji:hover {
+    cursor: pointer;
+    height: 35px;
+    width: 35px;
+  }
+  
+  .pContainer {
+    background-color: rgb(231, 143, 143);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 11px;
+  
+    position: relative;
+    right: -25px;
+    top: -5px;
+  }
+
+
+  .modal {
+    width: 40vw;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+  }
+  
+  .modal form {
+    border: 16px solid rgb(190, 218, 236);
+  }
+  
+  /* Modal button */
+  #form {
+    background-color: rgb(204, 235, 240);
+    align-self: flex-end;
+    padding: 0.5rem 2rem;
+    justify-self: center;
+    border-radius: 0 0 12px 12px;
+    border: none;
+  }
