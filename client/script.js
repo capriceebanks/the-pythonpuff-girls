@@ -61,7 +61,7 @@ gifSearchButton.addEventListener("click", (e) => {
     const target = e.target;
     const maxLength = target.getAttribute("maxlength");
     let currentLength = target.value.length;
-    counterPost.textContent = `${maxLength - currentLength} characters remaining`;
+    charCounterPost.textContent = `${maxLength - currentLength} characters remaining`;
     // Button is enabled since textarea has text:
     addPostButton.disabled = false;
   });
