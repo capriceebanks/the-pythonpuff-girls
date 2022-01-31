@@ -11,7 +11,7 @@ gifSearchButton.addEventListener("click", (e) => {
   
     search = search.replace(/\s/g, "+");
   
-    fetch(`http://localhost8008/gifs/${search}`)
+    fetch(`http://localhost:8008/gifs/${search}`)
       .then((response) => response.json())
       .then((obj) => {
         const gifDisplay = document.getElementById("gifs");
