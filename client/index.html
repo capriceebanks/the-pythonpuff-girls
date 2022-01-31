@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,10 +18,12 @@
         <ul class="links-container">
             <li class="link-item"><a href="/" class="link">home</a></li>
         </ul>
+        
+        <input type="search" id="search" placeholder="Search here">
     </nav>
 
     <header class="header">
-        <div class="content">
+        <div>
             <h1 class="heading">
                 <span class="small">The Python-Puff Girls welcome you to the world of</span>
                 <span>journal writing</span>
@@ -32,30 +35,52 @@
     <main>
     <section id="form">
         <div id="charCounterPost">140 characters remaining</div>
-        <form action="submit" class="main-form">
+        <form class="main-form">
           <textarea
-            id="newPostText"
+            class="newPostText"
             maxlength="140"
             type="text"
             required
+            rows="10"
+            cols="50"
             placeholder="share your stories here..."
             onclick="this.placeholder=''"
             onblur="this.placeholder='share your stories here...'"
           ></textarea>
+          <button id="btn">Submit Post</button>
         </form>
-        <section id="gifBox" class="overlay">
+
+    <section id="gifBox" class="overlay">
           <label for="gifSearch">Search for a gif</label>
           <input type="text" name="gifSearch" id="gifSearch" />
           <button id="gifSearchButton">SEARCH</button>
           <button id="closeButton">CLOSE</button>
           <div id="gifs"></div>
         </section>
-        <button id="addGif">Add Gif</button>
+     <button id="addGif">Add Gif</button>
         <button class="add-button" type="submit" id="formSubmit">
           Add Post
         </button>
       </section>
-    </main>
+  </main>
+
+      <!-- Cards Section -->
+      <div></div>
+
+      <!-- <div id="showDiv" style="display:none;">
+        <div class="row m-2">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Card New</h5>
+                        <p id="newPost" class="card-text"></p>
+                        <a href="#" class="btn btn-primary">Comment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
     </body>
 </html>
 
