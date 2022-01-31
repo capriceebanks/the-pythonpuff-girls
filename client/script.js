@@ -16,10 +16,11 @@ gifSearchButton.addEventListener("click", (e) => {
     //Replace spaces in the search term with a plus so the giphy api can handle multi word entries.
     
     search = search.replace(/\s/g, "+");
-    
+
     fetch(`${apiDomain}gifs/${search}`)
     .then((response) => response.json())
     .then((obj) => {
+
         const gifDisplay = document.getElementById("gifs");
         
         for (let i = 0; i < obj.length; i++) {
@@ -45,6 +46,7 @@ gifSearchButton.addEventListener("click", (e) => {
             gif.id = "gifToAdd";
   
             document.querySelector("form").append(gif);
+
         });
         gifDisplay.append(tempImg);
     }
@@ -73,11 +75,4 @@ document.getElementById("closeButton").addEventListener("click", () => {
       addPostButton.disabled = false;
     });
     
-
-
-
-
-
-
-
 

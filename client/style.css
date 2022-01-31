@@ -66,6 +66,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .content{
@@ -102,6 +103,7 @@ img {
     text-transform: capitalize;
 }
 
+
 .overlay {
     position: fixed;
     display: none;
@@ -128,6 +130,10 @@ img {
   }
   
   #gifPopup label {
+
+/* gif stuff - not working atm :( */
+#gifPopup label {
+
     color: rgb(2, 37, 3);
     font-weight: bold;
   }
@@ -321,7 +327,8 @@ img {
     left: -50px;
     display: block;
   }
-  article .comments {
+
+/*   article .comments {
     background-color: rgb(231, 229, 229);
     padding: 1rem;
     display: none;
@@ -357,10 +364,10 @@ img {
   
   .modal form {
     border: 16px solid grey;
-  }
+  } */
   
   /* Modal button */
-  #form {
+/*   #form {
     background-color: grey;
     align-self: flex-end;
     padding: 0.5rem 2rem;
@@ -397,9 +404,9 @@ img {
     cursor: pointer;
     height: 35px;
     width: 35px;
-  }
+  } */
   
-  .pContainer {
+/*   .pContainer {
     background-color: pink;
     border-radius: 50%;
     width: 20px;
@@ -413,5 +420,11 @@ img {
     position: relative;
     right: -25px;
     top: -5px;
-  }
+  } */
   
+
+/* 
+section {
+    width: 70%;
+    margin: 3rem auto 0;
+} */
