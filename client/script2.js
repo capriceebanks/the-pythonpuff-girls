@@ -2,30 +2,39 @@
 const btn = document.querySelector('#btn')
 const newPostText = document.querySelector('#newPostText');
 
-btn.addEventListener('click', addElement, postText)
+btn.addEventListener('click', showDiv)
+btn.addEventListener('click', postText)
 
+function showDiv(e) {
+    e.preventDefault();
+    let newPost = document.getElementById('newPost');
+    newPost.style.display = 'block';
+    
+}
 function postText(e) {
     e.preventDefault();
-    let inputVal = document.getElementById('newPostText').value;
+    let inputVal = document.querySelectorAll('.newPostText').value;
     let newPost = document.getElementById('newPost')
     newPost.append(inputVal);
 }
 
-function addElement(e) {
-  // create a new div element
-  e.preventDefault();
-  const newDiv = document.createElement("div");
 
-  // and give it some content
-  const newContent = document.createTextNode(newPostText);
 
-  // add the text node to the newly created div
-  newDiv.appendChild(newContent);
+// function addElement(e) {
+//   // create a new div element
+//   e.preventDefault();
+//   const newDiv = document.createElement("div");
 
-  // add the newly created element and its content into the DOM
-  const currentDiv = document.getElementById("div1");
-  document.body.insertBefore(newDiv, currentDiv);
-}
+//   // and give it some content
+//   const newContent = document.createTextNode(newPostText);
+
+//   // add the text node to the newly created div
+//   newDiv.appendChild(newContent);
+
+//   // add the newly created element and its content into the DOM
+//   const currentDiv = document.getElementById("div1");
+//   document.body.insertBefore(newDiv, currentDiv);
+// }
 
 
 
