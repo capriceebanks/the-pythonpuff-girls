@@ -65,6 +65,7 @@ document.getElementById("closeButton").addEventListener("click", () => {
 });
 
 // Calculate remaining characters 
+/*
   newPostText.addEventListener("input", (e) => {
       const target = e.target;
       const maxLength = target.getAttribute("maxlength");
@@ -74,5 +75,5 @@ document.getElementById("closeButton").addEventListener("click", () => {
       // Button is enabled since textarea has text:
       addPostButton.disabled = false;
     });
-    
+  */  
 

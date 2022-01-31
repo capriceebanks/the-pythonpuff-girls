@@ -19,7 +19,8 @@
       crossorigin="anonymous"
     />
     <!-- <script defer src="bundle.js"></script> -->
-    <script defer src="script.js"></script>
+    <!-- <script defer src="script.js"></script> -->
+    <script defer src="script2.js"></script>
   </head>
 
   <body>
@@ -53,7 +54,7 @@
     <main>
       <section id="form">
         <div id="charCounterPost">140 characters remaining</div>
-        <form class="main-form">
+        <form class="main-form" id="main-form">
           <textarea
             class="newPostText"
             maxlength="140"
@@ -75,7 +76,12 @@
           <div id="gifs"></div>
         </section>
         <button id="addGif">Add Gif</button>
-        <button class="add-button" type="submit" id="formSubmit">
+        <button
+          class="add-button"
+          type="submit"
+          id="formSubmit"
+          form="main-form"
+        >
           Add Post
         </button>
       </section>
