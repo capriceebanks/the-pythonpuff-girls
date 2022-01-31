@@ -18,6 +18,49 @@ app.get("/posts", (req, res) => {
   res.send(Post.all);
 });
 
+// get a specific post
+app.get("/posts/:id", (req, res) => {
+    try {
+        const id = parseInt(req.params.id);
+        if (id > Post.all.length || !id) {
+          throw new Error("item not found");
+        }
+        const post = Post.getPost(id);
+        res.send([post.name, post.title, post.message, post.comments, post.reactions, post.gifUrl]);
+      } catch (error) {
+        res.statusCode = 404;
+        res.send(error.message);
+      }
+});
+
+app.get("/posts/name/:id", (req, res) => {
+    try {
+        const id = parseInt(req.params.id);
+        if (id > Post.all.length || !id) {
+          throw new Error("item not found");
+        }
+        const post = Post.getPost(id);
+        res.send(post.name);
+      } catch (error) {
+        res.statusCode = 404;
+        res.send(error.message);
+      }
+  });
+
+app.get("/posts/title/:id", (req, res) => {
+    try {
+        const id = parseInt(req.params.id);
+        if (id > Post.all.length || !id) {
+          throw new Error("item not found");
+        }
+        const post = Post.getPost(id);
+        res.send(post.title);
+      } catch (error) {
+        res.statusCode = 404;
+        res.send(error.message);
+      }
+});
+
 app.get("/posts/comments/:id", (req, res) => {
   try {
     const id = parseInt(req.params.id);
@@ -88,8 +131,8 @@ app.put("/posts/reactions/update/:id", (req, res) => {
   try {
 
     const id = parseInt(req.params.id);
-    const targetReaction = req.body.target;
-    Post.updateReactions(id, targetReaction);
+    const targetEmoji = req.body.target;
+    Post.updateEmojis(id, targetEmoji);
     res.send("updated");
 
   } catch (error) {

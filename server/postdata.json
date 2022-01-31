@@ -1,8 +1,10 @@
 [
     {
         "id": 1,
+        "name": "test",
+        "title": "test title",
         "message": "Made a new API!",
-        "reactions": {"emoji1": 27, "emoji2": 30, "emoji3": 9},
+        "reactions": {"emoji1":1, "emoji2": 1, "emoji3": 1},
         "comments": ["Wow!", "So cool, nice job!!"],
         "gifUrl": null
     }
