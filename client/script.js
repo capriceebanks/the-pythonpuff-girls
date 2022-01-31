@@ -1,3 +1,16 @@
+// ********************************************
+// SETUP
+
+const form = document.querySelector('#new-post-form');
+
+// Bind event listeners
+
+form.addEventListener('submit', submitPost);
+
+// Fetch all posts as soon as app is loaded
+getAllPosts();
+// ********************************************
+
 
 // gif stuff
 const gifSearchButton = document.getElementById("gifSearchButton");
@@ -55,3 +68,49 @@ gifSearchButton.addEventListener("click", (e) => {
   document.getElementById("closeButton").addEventListener("click", () => {
     document.getElementById("gifPopup").style.display = "none";
   });
+
+  function getAllPosts(){
+    fetch('http://localhost:8008/posts')
+        .then(r => r.json())
+        .then(appendPosts)
+        .catch(console.warn)
+};
+
+// create
+function submitPost(e){
+  e.preventDefault();
+
+  const postData = {
+      name: e.target.name.value,
+      title: e.target.title.value,
+      message: e.target.newPostText.value,
+      //comments: e.target.comments.value
+  };
+
+  const options = { 
+      method: 'POST',
+      body: JSON.stringify(postData),
+      headers: {
+          "Content-Type": "application/json"
+      }
+  };
+
+  fetch('http://localhost:3000/posts', options)
+      .then(r => r.json())
+      .then(appendPost)
+      .catch(console.warn)
+};
+
+// helpers
+function appendPosts(posts){
+  posts.forEach(appendPost);
+};
+
+function appendPost(postData){
+  const newLi = document.createElement('li');
+  newLi.textContent = `Name: ${postData.name} || Title: ${postData.title} || Message: ${postData.message} || Comments: ${postData.comments}`
+  const postsList = document.querySelector('.post-message');
+  postsList.append(newLi);
+};
+
+getAllPosts();

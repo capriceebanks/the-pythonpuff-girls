@@ -1,60 +1,77 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Python-puff Girls</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
 
     <script defer src="script.js"></script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <nav class="navbar">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuVOuQtJDFgZxuNq9GWUBk1atj8gpGxnD9crSJDt6Vt57Eqr_KnO2G7CFaPv2Yz-bsoKI&usqp=CAU" class="logo" alt="">
-        <ul class="links-container">
-            <li class="link-item"><a href="/" class="link">home</a></li>
-        </ul>
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuVOuQtJDFgZxuNq9GWUBk1atj8gpGxnD9crSJDt6Vt57Eqr_KnO2G7CFaPv2Yz-bsoKI&usqp=CAU"
+        class="logo"
+        alt=""
+      />
+      <ul class="links-container">
+        <li class="link-item"><a href="/" class="link">home</a></li>
+      </ul>
     </nav>
 
     <header class="header">
-        <div class="content">
-            <h1 class="heading">
-                <span class="small">The Python-Puff Girls welcome you to the world of</span>
-                <span>journal writing</span>
-            </h1>
-            <p class="subheader">write a journal entry about your coding escapades!</p>
-        </div>
+      <div class="content">
+        <h1 class="heading">
+          <span class="small"
+            >The Python-Puff Girls welcome you to the world of</span
+          >
+          <span>journal writing</span>
+        </h1>
+        <p class="subheader">
+          write a journal entry about your coding escapades!
+        </p>
+      </div>
     </header>
 
     <section id="form">
-        <div id="charCounterPost">140 characters remaining</div>
-        <form action="submit" class="main-form">
-          <textarea
-            id="newPostText"
-            maxlength="140"
-            type="text"
-            required
-            placeholder="share your stories here..."
-            onclick="this.placeholder=''"
-            onblur="this.placeholder='share your stories here...'"
-          ></textarea>
-        </form>
-        <section id="gifBox" class="overlay">
-          <label for="gifSearch">Search for a gif</label>
-          <input type="text" name="gifSearch" id="gifSearch" />
-          <button id="gifSearchButton">SEARCH</button>
-          <button id="closeButton">CLOSE</button>
-          <div id="gifs"></div>
-        </section>
-        <button id="addGif">Add Gif</button>
-        <button class="add-button" type="submit" id="formSubmit">
-          Add Post
-        </button>
+      <form id="new-post-form" action="submit" class="main-form">
+        <label for="name">Username:</label>
+        <input id="name"></input>
+        <br/>
+        <label for="title">Title:</label>
+        <input id="title"></input>
+        <div id="charCounterPost">Message: 140 characters remaining</div>
+        <textarea
+          id="newPostText"
+          maxlength="140"
+          type="text"
+          required
+          placeholder="share your stories here..."
+          onclick="this.placeholder=''"
+          onblur="this.placeholder='share your stories here...'"
+        ></textarea>    
+        <button class="add-button" type="submit" id="formSubmit">Add Post</button>
+      </form>
+      <section id="gifBox" class="overlay">
+        <label for="gifSearch">Search for a gif</label>
+        <input type="text" name="gifSearch" id="gifSearch" />
+        <button id="gifSearchButton">SEARCH</button>
+        <button id="closeButton">CLOSE</button>
+        <div id="gifs"></div>
       </section>
-    </body>
+      <button id="addGif">Add Gif</button>
+      <!-- <button class="add-button" type="submit" id="formSubmit">Add Post</button> -->
+    </section>
+    <section id="posts">
+      <h3>Posts:</h3>
+      <ul class="post-message"></ul>
+    </section>
+  </body>
 </html>
-
