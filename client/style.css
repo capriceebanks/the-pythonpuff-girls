@@ -1,32 +1,30 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    height: 100%;
-  }
-
-body{
-    width: 100%;
-    position: relative;
-    font-family: 'poppins', sans-serif;
+  height: 100%;
 }
 
-::selection{
-    background: #1b1b1b;
-    color: #fff;
+body {
+  width: 100%;
+  position: relative;
+  font-family: "poppins", sans-serif;
 }
 
-img {
-    max-width: 100%;
-    max-height: 100%;
+::selection {
+  background: #1b1b1b;
+  color: #fff;
 }
 
+
+
+/*Nav bar*/
 .logo {
-    height: 200px;
-    width: 200px;
+  height: 200px;
+  width: 200px;
 }
 
 .navbar{
@@ -43,11 +41,11 @@ img {
     z-index: 9;
 }
 
+/* Home link in nav bar */
 .links-container{
     display: flex;
     list-style: none;
 }
-
 .link{
     padding: 10px;
     margin-left: 10px;
@@ -56,6 +54,7 @@ img {
     color: #000;
 }
 
+/*Main titles and ppg picture*/
 .header{
     margin-top: 60px;
     width: 100%;
@@ -68,11 +67,9 @@ img {
     align-items: center;
     text-align: center;
 }
-
 .content{
     text-align: center;
 }
-
 .heading{
     color: #FFD0E7;
     text-shadow: 2px 2px 2px #ff0000, 4px 4px 2px #00ff00;
@@ -82,18 +79,15 @@ img {
     margin-bottom: 80px;
     display: block;
 }
-
 .heading .small{
     display: block;
     font-size: 40px;
 }
-
 .heading .no-fill{
     font-style: italic;
     color: transparent;
     -webkit-text-stroke: 2px black;
 }
-
 .subheader{
     padding: 10px 20px;
     border-radius: 10px;
@@ -101,9 +95,13 @@ img {
     color: #000;
     text-decoration: none;
     text-transform: capitalize;
+img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 
+  
 .overlay {
     position: fixed;
     display: none;
@@ -119,42 +117,51 @@ img {
     contain: content;
     padding-bottom: 4rem;
   }
-  
   .overlay button:hover {
-    background-color: antiquewhite;
+    background-color: rgb(255, 224, 228);
     font-weight: bold;
   }
-  
   .overlay input:hover {
-    background-color: azure;
+    background-color: rgb(255, 224, 228);
   }
+
   
+<<<<<<< HEAD
 
 /* gif stuff - not working atm :( */
 #gifPopup label {
 
+=======
+  /* gif stuff*/
+  #gifSearch label {
+>>>>>>> bc6baa6b7ce08c795c5c782c5779edef568af328
     color: rgb(2, 37, 3);
     font-weight: bold;
+    padding-left: 50px;
   }
-  
   #gifSearch {
     width: 8rem;
     height: 1.2rem;
     text-align: center;
     margin-left: 1rem;
+    border-radius: 5px;
+    border: 2px white solid;
   }
   
-  #giphySearchButton,
+  #gifSearchButton,
   #closeButton {
     padding: 0.2rem 0.8rem;
     margin: 1rem 0.2rem;
     border-radius: 5px;
     border: 2px white solid;
   }
+
   #gifPopup {
     text-align: center;
-    /* display: block; */
+    display: block;
+    max-width: fit-content;
   }
+
   #gifs {
     width: 100%;
     height: 100%;
@@ -162,40 +169,31 @@ img {
     overflow-y: scroll;
   }
   .gif-img {
-    height: 100px;
-    display: inline;
-    margin: 0 10px;
+    height: 200px;
+    display: block;
   }
   
+
+  /*form*/
   main {
     grid-area: main;
-    background-color: rgb(255, 255, 255);
     height: 100%;
     contain: content;
-    border-radius: 30px 30px 0 0;
     padding-bottom: 4rem;
   }
-  
   section {
     width: 70%;
     margin: 3rem auto 0;
   }
-  
   .main-form {
     width: 100%;
     height: 20vh;
     border: 16px solid rgb(240, 240, 240);
-    border-radius: 12px 12px 0 0;
   }
-  
   ::placeholder {
     text-align: center;
-    font-style: italic;
-    color: pink;
-    opacity: 0.6;
-    font-size: larger;
+    color: #FFD0E7;
   }
-  
   form textarea {
     width: 100%;
     height: 100%;
@@ -206,9 +204,16 @@ img {
     line-height: 1.7rem;
     padding: 0.6rem;
   }
-
-
+  #form {
+    background-color: grey;
+    align-self: flex-end;
+    padding: 0.5rem 2rem;
+    justify-self: center;
+    border: none;
+  }
   
+
+  /* character counter*/
   #charCounterPost,
   #charCounterComment {
     height: 1rem;
@@ -220,11 +225,10 @@ img {
     font-style: italic;
   }
   
+  /* add post button */
   .add-button {
     height: 60px;
-    background-color: pink;
-    border-radius: 0 0 12px 12px;
-  
+    background-color: #FFD0E7;
     border: none;
     width: 100%;
     font-size: 1rem;
@@ -233,12 +237,12 @@ img {
   .add-button:hover {
     background-color: black;
   }
+
+  /*add gif button*/
   #addGif {
     height: 35px;
-    background-color: pink;
-  
-    margin-top: 0.2rem;
-  
+    background-color: #FFD0E7;
+    margin-top: 4rem;
     border: none;
     width: 100%;
     font-size: 1rem;
@@ -247,12 +251,17 @@ img {
   #addGif:hover {
     background-color: black;
   }
-  
   button:hover {
     cursor: pointer;
   }
   
-  article {
+
+
+
+
+
+
+  /* article {
     width: 70%;
     height: auto;
     display: grid;
@@ -263,35 +272,35 @@ img {
     top: 1%;
     display: flex;
     flex-direction: column;
-  }
+  } */
   
-  article .post {
+  /* article .post {
     background-color: grey;
     padding: 2rem;
     text-align: left;
     border-radius: 5px 5px 0 0;
     font-size: larger;
-  }
+  } */
   
-  article .reactions {
+  /* article .reactions {
     border: 5px rgb(238, 236, 236) solid;
     height: 7vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  
-  article .reactions #emoji-box {
+   */
+  /* article .reactions #emoji-box {
     width: 10vw;
     height: 4vh;
     /* border: lightgray solid 1px; */
     /* margin: auto auto auto 1rem; */
-    display: flex;
+    /* display: flex;
     justify-content: space-evenly;
     align-items: center;
-  }
-  
-  article .reactions .collapsible {
+  } */
+
+  /* article .reactions .collapsible {
     height: 3.8vh;
     width: 2.6vw;
     border: none;
@@ -300,17 +309,14 @@ img {
     background-size: contain;
     background-repeat: no-repeat;
     background-color: white;
-  }
+  } */
   
-  article .reactions .collapsible:hover {
+  /* article .reactions .collapsible:hover {
     height: 4.2vh;
     width: 3vw;
     cursor: pointer;
   }
   
-  /* article .reactions .collapsible:hover {
-    height: 5vh;
-  } */
   #postGifContainer {
     width: 70%;
   }
@@ -322,7 +328,11 @@ img {
   #gifToAdd {
     height: 100px;
     position: relative;
+<<<<<<< HEAD
     bottom: 120px;
+=======
+    top: 1.5rem;
+>>>>>>> bc6baa6b7ce08c795c5c782c5779edef568af328
     display: block;
   }
 
@@ -351,8 +361,9 @@ img {
     right: 0.3rem;
     bottom: 0;
   }
+   */
   
-  .modal {
+  /* .modal {
     width: 40vw;
     position: absolute;
     top: 50vh;
@@ -363,8 +374,8 @@ img {
   .modal form {
     border: 16px solid grey;
   } */
-  
-  /* Modal button */
+
+/* Modal button */
 /*   #form {
     background-color: grey;
     align-self: flex-end;
@@ -377,34 +388,28 @@ img {
   .emoji {
     width: 30px;
     height: 30px;
-  }
+  } */
   
-  div.emoji1 {
+  /* div.emoji1 {
     background-image: url('./images/emoji1.png');
     background-size: cover;
-  
   }
-  
   div.emoji2 {
     background-image: url('./images/emoji2.png');
     background-size: cover;
-  
   }
-  
-  
   div.emoji3{
     background-image: url('./images/emoji3.png');
     background-size: cover;
+  } */
   
-  }
-  
-  .emoji:hover {
+  /* .emoji:hover {
     cursor: pointer;
     height: 35px;
     width: 35px;
   } */
   
-/*   .pContainer {
+  /* .pContainer {
     background-color: pink;
     border-radius: 50%;
     width: 20px;
@@ -419,7 +424,6 @@ img {
     right: -25px;
     top: -5px;
   } */
-  
 
 /* 
 section {

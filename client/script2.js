@@ -1,3 +1,61 @@
+// ********************************************
+// SETUP
+
+const form = document.querySelector('.main-form');
+
+// Bind event listeners
+
+form.addEventListener('submit', submitPost);
+
+
+// Fetch all posts as soon as app is loaded
+getAllPosts();
+// ********************************************
+
+function getAllPosts(){
+    fetch('http://localhost:8008/posts')
+        .then(r => r.json())
+        .then(appendPosts)
+        .catch(console.warn)
+};
+
+// create
+function submitPost(e){
+  e.preventDefault();
+
+  const postData = {
+    message: e.target.querySelector(".newPostText").value,
+
+  };
+
+  const options = { 
+      method: 'POST',
+      body: JSON.stringify(postData),
+      headers: {
+          "Content-Type": "application/json"
+      }
+  };
+
+  fetch('http://localhost:8008/posts/new', options)
+      .then(r => r.json())
+      .then(appendPost)
+      .catch(console.warn)
+};
+
+// helpers
+function appendPosts(posts){
+  posts.forEach(appendPost);
+};
+
+
+function appendPost(postData){
+  const newLi = document.createElement('li');
+  newLi.textContent = ` Message: ${postData.message}`
+  const postsList = document.querySelector('.post-message');
+  postsList.append(newLi);
+};
+
+
 
 const btn = document.querySelector('#btn')
 const newPost = document.querySelector('#newPost');
@@ -26,12 +84,12 @@ function createPost(data) {
     }
 }
 
-function appendPost(postData){
-    const newDiv = document.createElement('div');
-    // newDiv.textContent = ;
-    const postsList = document.querySelector('.post-message');
-    postsList.append(newLi);
-} 
+// function appendPost(postData){
+//     const newDiv = document.createElement('div');
+//     // newDiv.textContent = ;
+//     const postsList = document.querySelector('.post-message');
+//     postsList.append(newLi);
+// } 
 
 // function addElement(e) {
 //   // create a new div element
@@ -54,3 +112,6 @@ function appendPost(postData){
 // 1) we need to add a card/div with the styling of existing cards/divs
 // 2) we need to append the written data from textarea to newly made div
 // 3) we need to adjust the layout so when a new div is made, existing divs move along to the right 
+
+
+

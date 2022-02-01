@@ -25,6 +25,7 @@ app.get("/posts", (req, res) => {
   res.send(Post.all);
 });
 
+
 // get a specific post
 app.get("/posts/:id", (req, res) => {
     try {
@@ -107,7 +108,7 @@ app.get("/gifs/:search", (req, res) => {
 
 //POST
 app.post("/posts/new", (req, res) => {
-
+  
   Post.addPost(req.body);
   res.statusCode = 201;
   res.send(Post.all);
