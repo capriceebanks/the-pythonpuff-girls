@@ -21,7 +21,7 @@ function getAllPosts(){
 
 // create
 function submitPost(e){
-  e.preventDefault();
+//   e.preventDefault();
 
   const postData = {
     message: e.target.querySelector("#newPostText").value,
@@ -106,12 +106,4 @@ function createPost(data) {
 //   const currentDiv = document.getElementById("div1");
 //   document.body.insertBefore(newDiv, currentDiv);
 // }
-
-
-
-// 1) we need to add a card/div with the styling of existing cards/divs
-// 2) we need to append the written data from textarea to newly made div
-// 3) we need to adjust the layout so when a new div is made, existing divs move along to the right 
-
-
 

@@ -65,7 +65,6 @@ document.getElementById("closeButton").addEventListener("click", () => {
 });
 
 // Calculate remaining characters 
-// Calculate remaining characters 
 newPostText.addEventListener("input", (e) => {
     const target = e.target;
     const maxLength = target.getAttribute("maxlength");
