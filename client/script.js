@@ -84,9 +84,6 @@ textArea.addEventListener("input", (e) => {
 // TEST POST BUTTON
 
 
-
-
-
 function createPosts(object) {
 
     for (let i = object.length - 1; i >= 0; i--) {
@@ -96,6 +93,11 @@ function createPosts(object) {
       const post = document.createElement("div");
       post.classList.add("post");
       post.textContent = object[i].message;
+
+      //Caz's addition//
+
+      const newComment = document.createElement("button")
+    
   
       newSection.append(post);
   
