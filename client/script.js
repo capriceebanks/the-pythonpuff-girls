@@ -94,10 +94,6 @@ function createPosts(object) {
       post.classList.add("post");
       post.textContent = object[i].message;
 
-      //Caz's addition//
-
-      const newComment = document.createElement("button")
-    
   
       newSection.append(post);
   
