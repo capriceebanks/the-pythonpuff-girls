@@ -7,6 +7,15 @@ const axios = require('axios').default;
 
 app.use(cors());
 app.use(express.json());
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN.TLD"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+
+app.use(cors());
+app.use(express.json());
+
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://127.0.0.1:5504"); // update to match the domain you will make the request from
@@ -80,7 +89,7 @@ app.get("/posts/comments/:id", (req, res) => {
     res.send(error.message);
   }
 });
-
+   
 app.get("/gifs/:search", (req, res) => {
 
   try {
@@ -90,7 +99,7 @@ app.get("/gifs/:search", (req, res) => {
       throw new Error('No search term')
     }
     const url = `https://api.giphy.com/v1/gifs/search?&api_key=boz8v8QN3CXVyMxFjoGU5eOKXGgi2PoJ&q=${search}&limit=25`
-
+    
     axios.get(url)
     .then(function (response) {
       res.send(response.data.data)
@@ -101,13 +110,11 @@ app.get("/gifs/:search", (req, res) => {
   } catch (error) {
     res.send(error.message)
   }
-  
-  
 })
+
 
 //POST
 app.post("/posts/new", (req, res) => {
-
 
   Post.addPost(req.body);
   res.statusCode = 201;
