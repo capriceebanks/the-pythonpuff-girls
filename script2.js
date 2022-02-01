@@ -57,32 +57,32 @@ function appendPost(postData){
 
 
 
-const btn = document.querySelector('#btn')
-const newPost = document.querySelector('#newPost');
+// const btn = document.querySelector('#btn')
+// const newPost = document.querySelector('#newPost');
 
-btn.addEventListener('click', showDiv)
-btn.addEventListener('click', postText)
+// btn.addEventListener('click', showDiv)
+// btn.addEventListener('click', postText)
 
-function showDiv(e) {
-    e.preventDefault();
-    let newPost = document.getElementById('showDiv');
-    newPost.style.display = 'block';
+// function showDiv(e) {
+//     e.preventDefault();
+//     let newPost = document.getElementById('showDiv');
+//     newPost.style.display = 'block';
     
-}
-function postText(e) {
-    e.preventDefault();
-    let inputVal = document.querySelector('.newPostText').value;
-    console.log(newPost.append(inputVal));
-}
+// }
+// function postText(e) {
+//     e.preventDefault();
+//     let inputVal = document.querySelector('.newPostText').value;
+//     console.log(newPost.append(inputVal));
+// }
 
-function createPost(data) {
-    e.preventDefault();
-    fetch()
-    for(let i = 0; i <= data.length; i++){
-        const newDiv = document.createElement('div');
-        newDiv.textContent = data[i].message;
-    }
-}
+// function createPost(data) {
+//     e.preventDefault();
+//     fetch()
+//     for(let i = 0; i <= data.length; i++){
+//         const newDiv = document.createElement('div');
+//         newDiv.textContent = data[i].message;
+//     }
+// }
 
 // function appendPost(postData){
 //     const newDiv = document.createElement('div');
