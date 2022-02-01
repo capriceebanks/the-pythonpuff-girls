@@ -13,18 +13,6 @@
     <script defer src="script2.js"></script>
 </head>
 
-
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <!-- <script defer src="bundle.js"></script> -->
-    <script defer src="script.js"></script>
-    <script defer src="script2.js"></script>
-  </head>
-
   <body>
     <nav class="navbar">
       <img
@@ -58,7 +46,7 @@
         <div id="charCounterPost">140 characters remaining</div>
         <form class="main-form" id="main-form">
           <textarea
-            id="newPostText"
+            id="textArea"
             maxlength="140"
             type="text"
             required
@@ -89,13 +77,18 @@
       </section>
     </main>
 
-    <section id="posts">
-      <h3>Posts:</h3>
-      <ul class="post-message"></ul>
-    </section>
+    <h3>Recent Entries</h3>
+
+
+    <!-- <section id="posts">
+      <div id="postSection">
+       
+          <p class="post-message"></p>
+      </div>    
+    </section> -->
 
     <!-- Cards Section -->
-    <div></div>
+    <!-- <div></div> -->
 
     <!-- <div id="showDiv" style="display:none;">
         <div class="row m-2">
