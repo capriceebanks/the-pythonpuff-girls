@@ -1,4 +1,3 @@
-const helpers = require("./helpers");
 
 const apiDomain = "http://localhost:8008/";
 
@@ -51,7 +50,7 @@ gifSearchButton.addEventListener("click", (e) => {
         gifDisplay.append(tempImg);
     }
 })
-.catch((error) => console.log(error));
+  .catch((error) => console.log(error));
 });
 
 // makes the gif search div display
@@ -65,14 +64,12 @@ document.getElementById("closeButton").addEventListener("click", () => {
 });
 
 // Calculate remaining characters 
-  newPostText.addEventListener("input", (e) => {
-      const target = e.target;
-      const maxLength = target.getAttribute("maxlength");
-      let currentLength = target.value.length;
-      charCounterPost.textContent = `${maxLength - currentLength} characters remaining`;
-      
-      // Button is enabled since textarea has text:
-      addPostButton.disabled = false;
-    });
-    
 
+    const target = e.target;
+    const maxLength = target.getAttribute("maxlength");
+    let currentLength = target.value.length;
+    charCounterPost.textContent = `${maxLength - currentLength} characters remaining`;
+
+    // Button is enabled since textarea has text:
+    addPostButton.disabled = false;
+  });

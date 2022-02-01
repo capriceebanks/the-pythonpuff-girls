@@ -1,47 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Python-puff Girls</title>
+
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
   
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script defer src="bundle.js"></script>
     <script defer src="script.js"></script>
 
 </head>
 
-<body>
 
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <!-- <script defer src="bundle.js"></script> -->
+    <script defer src="script.js"></script>
+    <script defer src="script2.js"></script>
+  </head>
+
+  <body>
     <nav class="navbar">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuVOuQtJDFgZxuNq9GWUBk1atj8gpGxnD9crSJDt6Vt57Eqr_KnO2G7CFaPv2Yz-bsoKI&usqp=CAU" class="logo" alt="">
-        <ul class="links-container">
-            <li class="link-item"><a href="/" class="link">home</a></li>
-        </ul>
-        
-        <input type="search" id="search" placeholder="Search here">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuVOuQtJDFgZxuNq9GWUBk1atj8gpGxnD9crSJDt6Vt57Eqr_KnO2G7CFaPv2Yz-bsoKI&usqp=CAU"
+        class="logo"
+        alt=""
+      />
+      <ul class="links-container">
+        <li class="link-item"><a href="/" class="link">home</a></li>
+      </ul>
+
+      <input type="search" id="search" placeholder="Search here" />
     </nav>
 
     <header class="header">
-        <div>
-            <h1 class="heading">
-                <span class="small">The Python-Puff Girls welcome you to the world of</span>
-                <span>journal writing</span>
-            </h1>
-            <p class="subheader">write a journal entry about your coding escapades!</p>
-        </div>
+      <div>
+        <h1 class="heading">
+          <span class="small"
+            >The Python-Puff Girls welcome you to the world of</span
+          >
+          <span>journal writing</span>
+        </h1>
+        <p class="subheader">
+          write a journal entry about your coding escapades!
+        </p>
+      </div>
     </header>
 
     <main>
-    <section id="form">
+      <section id="form">
         <div id="charCounterPost">140 characters remaining</div>
-        <form class="main-form">
+        <form class="main-form" id="main-form">
           <textarea
-            class="newPostText"
+            id="newPostText"
             maxlength="140"
             type="text"
             required
@@ -51,27 +70,36 @@
             onclick="this.placeholder=''"
             onblur="this.placeholder='share your stories here...'"
           ></textarea>
-          <button id="btn">Submit Post</button>
         </form>
 
-    <section id="gifBox" class="overlay">
+        <section id="gifBox" class="overlay">
           <label for="gifSearch">Search for a gif</label>
           <input type="text" name="gifSearch" id="gifSearch" />
           <button id="gifSearchButton">SEARCH</button>
           <button id="closeButton">CLOSE</button>
           <div id="gifs"></div>
         </section>
-     <button id="addGif">Add Gif</button>
-        <button class="add-button" type="submit" id="formSubmit">
+        <button id="addGif">Add Gif</button>
+        <button
+          class="add-button"
+          type="submit"
+          id="formSubmit"
+          form="main-form"
+        >
           Add Post
         </button>
       </section>
-  </main>
+    </main>
 
-      <!-- Cards Section -->
-      <div></div>
+    <section id="posts">
+      <h3>Posts:</h3>
+      <ul class="post-message"></ul>
+    </section>
 
-      <!-- <div id="showDiv" style="display:none;">
+    <!-- Cards Section -->
+    <div></div>
+
+    <!-- <div id="showDiv" style="display:none;">
         <div class="row m-2">
             <div class="col-sm-6">
                 <div class="card">
@@ -84,7 +112,5 @@
             </div>
         </div>
     </div> -->
-
-    </body>
+  </body>
 </html>
-
