@@ -1,12 +1,12 @@
-// const helpers = require("./helpers");
-
-
 const apiDomain = "http://localhost:8008/";
 
 
 // gif selectors
 const gifSearchButton = document.getElementById("gifSearchButton");
 const addGifButton = document.querySelector("#addGif");
+
+const textArea = document.getElementById("textArea");
+const counterPost = document.getElementById("charCounterPost");
 const addPostButton = document.getElementById("formSubmit");
 
 
@@ -65,8 +65,8 @@ document.getElementById("closeButton").addEventListener("click", () => {
     document.getElementById("gifBox").style.display = "none";
 });
 
-// Calculate remaining characters 
-// Calculate remaining characters 
+
+// Calculate remaining characters
 textArea.addEventListener("input", (e) => {
     const target = e.target;
     const maxLength = target.getAttribute("maxlength");
@@ -77,31 +77,54 @@ textArea.addEventListener("input", (e) => {
     addPostButton.disabled = false;
   });
 
- // TEST POST BUTTON
+
+
+
+
+// TEST POST BUTTON
+
+
+
+
+
 function createPosts(object) {
+
     for (let i = object.length - 1; i >= 0; i--) {
       const newSection = document.createElement("section");
+      newSection.classList.add("newSection");
+  
       const post = document.createElement("div");
       post.classList.add("post");
       post.textContent = object[i].message;
+  
       newSection.append(post);
+  
       if (object[i].gifUrl) {
         const gifArea = document.createElement("div");
         gifArea.classList.add("GifAreaInPost");
+  
         const img = document.createElement("img");
         img.classList.add("gifInPost");
         img.src = object[i].gifUrl;
+  
         gifArea.append(img);
+  
         newSection.append(gifArea);
       }
+  
       newSection.id = object[i].id;
+  
       document.querySelector("main").append(newSection);
     }
   }
+
+
 addPostButton.addEventListener("click", (e) => {
+
     const data = {
       message: document.getElementById("textArea").value,
     };
+
     // if text area was empty when submitting nothing is posted
     if (data.message === "") {
       return
@@ -130,3 +153,6 @@ addPostButton.addEventListener("click", (e) => {
       })
       .catch((error) => console.log(error));
   });
+
+
+
