@@ -6,7 +6,7 @@ const apiDomain = "http://localhost:8008/";
 // gif selectors
 const gifSearchButton = document.getElementById("gifSearchButton");
 const addGifButton = document.querySelector("#addGif");
-
+const addPostButton = document.getElementById("formSubmit");
 
 
 // calls the Giphy api and displays the results
@@ -65,12 +65,13 @@ document.getElementById("closeButton").addEventListener("click", () => {
 });
 
 // Calculate remaining characters 
+// Calculate remaining characters 
 newPostText.addEventListener("input", (e) => {
     const target = e.target;
     const maxLength = target.getAttribute("maxlength");
     let currentLength = target.value.length;
     charCounterPost.textContent = `${maxLength - currentLength} characters remaining`;
-
+    
     // Button is enabled since textarea has text:
     addPostButton.disabled = false;
   });

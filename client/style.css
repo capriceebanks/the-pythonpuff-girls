@@ -19,8 +19,6 @@ body {
   color: #fff;
 }
 
-
-
 /*Nav bar*/
 .logo {
   height: 200px;
@@ -95,7 +93,6 @@ body {
     color: #000;
     text-decoration: none;
     text-transform: capitalize;
-
 }
 
 img {
