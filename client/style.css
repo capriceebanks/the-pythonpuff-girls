@@ -320,10 +320,9 @@ img {
     border: 5px rgb(238, 236, 236) solid;
   }
   #gifToAdd {
-    height: 50px;
+    height: 100px;
     position: relative;
-    bottom: 40px;
-    left: -50px;
+    bottom: 120px;
     display: block;
   }
 

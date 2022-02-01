@@ -1,21 +1,22 @@
 
-const btn = document.querySelector('#btn')
+const addPostBtn = document.querySelector('#add-button')
 const newPost = document.querySelector('#newPost');
 
-btn.addEventListener('click', showDiv)
-btn.addEventListener('click', postText)
+// btn.addEventListener('click', showDiv)
+// btn.addEventListener('click', postText)
+addPostBtn.addEventListener('click', createPost)
 
-function showDiv(e) {
-    e.preventDefault();
-    let newPost = document.getElementById('showDiv');
-    newPost.style.display = 'block';
+// function showDiv(e) {
+//     e.preventDefault();
+//     let newPost = document.getElementById('showDiv');
+//     newPost.style.display = 'block';
     
-}
-function postText(e) {
-    e.preventDefault();
-    let inputVal = document.querySelector('.newPostText').value;
-    console.log(newPost.append(inputVal));
-}
+// }
+// function postText(e) {
+//     e.preventDefault();
+//     let inputVal = document.querySelector('.newPostText').value;
+//     console.log(newPost.append(inputVal));
+// }
 
 function createPost(data) {
     e.preventDefault();
