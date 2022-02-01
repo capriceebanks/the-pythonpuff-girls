@@ -21,7 +21,7 @@ function getAllPosts(){
 
 // create
 function submitPost(e){
-//   e.preventDefault();
+  e.preventDefault();
 
   const postData = {
     message: e.target.querySelector("#newPostText").value,
