@@ -67,7 +67,7 @@ document.getElementById("closeButton").addEventListener("click", () => {
 
 // Calculate remaining characters 
 // Calculate remaining characters 
-newPostText.addEventListener("input", (e) => {
+textArea.addEventListener("input", (e) => {
     const target = e.target;
     const maxLength = target.getAttribute("maxlength");
     let currentLength = target.value.length;
@@ -75,4 +75,58 @@ newPostText.addEventListener("input", (e) => {
     
     // Button is enabled since textarea has text:
     addPostButton.disabled = false;
+  });
+
+ // TEST POST BUTTON
+function createPosts(object) {
+    for (let i = object.length - 1; i >= 0; i--) {
+      const newSection = document.createElement("section");
+      const post = document.createElement("div");
+      post.classList.add("post");
+      post.textContent = object[i].message;
+      newSection.append(post);
+      if (object[i].gifUrl) {
+        const gifArea = document.createElement("div");
+        gifArea.classList.add("GifAreaInPost");
+        const img = document.createElement("img");
+        img.classList.add("gifInPost");
+        img.src = object[i].gifUrl;
+        gifArea.append(img);
+        newSection.append(gifArea);
+      }
+      newSection.id = object[i].id;
+      document.querySelector("main").append(newSection);
+    }
+  }
+addPostButton.addEventListener("click", (e) => {
+    const data = {
+      message: document.getElementById("textArea").value,
+    };
+    // if text area was empty when submitting nothing is posted
+    if (data.message === "") {
+      return
+    }
+    // add the gif
+    if (document.getElementById("gifToAdd") === null) {
+      data.gifUrl = null;
+    } else {
+      data.gifUrl = document.getElementById("gifToAdd").src;
+    }
+    const options = {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    fetch(`${apiDomain}posts/new`, options)
+      .then((response) => response.json())
+      .then((obj) => {
+        createPosts(obj);
+        textArea.value = "";
+        if (document.getElementById("gifToAdd")) {
+          document.getElementById("gifToAdd").remove();
+        }
+      })
+      .catch((error) => console.log(error));
   });
