@@ -7,7 +7,7 @@ const apiDomain = "http://localhost:8008/";
 // gif selectors
 const gifSearchButton = document.getElementById("gifSearchButton");
 const addGifButton = document.querySelector("#addGif");
-
+const addPostButton = document.getElementById("formSubmit");
 
 
 // calls the Giphy api and displays the results
