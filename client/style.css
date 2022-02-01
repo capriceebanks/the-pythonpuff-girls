@@ -104,29 +104,30 @@ img {
 }
 
 .overlay {
-  position: fixed;
-  display: none;
-  width: 60%;
-  height: 50vh;
-  top: 3%;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: lightgray;
-  z-index: 2;
-  cursor: pointer;
-  contain: content;
-  padding-bottom: 4rem;
-}
-
-.overlay button:hover {
-  background-color: antiquewhite;
-  font-weight: bold;
-}
-
-.overlay input:hover {
-  background-color: azure;
-}
+    position: fixed;
+    display: none;
+    width: 60%;
+    height: 50vh;
+    top: 3%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: lightgray;
+    z-index: 2;
+    cursor: pointer;
+    contain: content;
+    padding-bottom: 4rem;
+  }
+  
+  .overlay button:hover {
+    background-color: antiquewhite;
+    font-weight: bold;
+  }
+  
+  .overlay input:hover {
+    background-color: azure;
+  }
+  
 
 /* gif stuff - not working atm :( */
 #gifPopup label {
