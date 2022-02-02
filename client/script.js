@@ -118,7 +118,7 @@ function addGifPlusComments(jsonData) {
     const emojiSection = document.createElement("div");
     emojiSection.classList.add("emojiSection");
     newSection.append(emojiSection)
-    
+
     const heartEmojiButton = document.createElement("button");
     const heartEmoji = document.createElement("img");
     heartEmoji.classList.add("heartEmoji");
@@ -181,6 +181,7 @@ function addGifPlusComments(jsonData) {
 
     const recentCommentsComment = document.createElement("p")
     recentCommentsComment.textContent= jsonData.comments
+
 
     addCommentButton.addEventListener('click', (e) => {
         window.location.reload()
