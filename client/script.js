@@ -1,4 +1,4 @@
-const apiDomain = "https://fathomless-journey-97832.herokuapp.com/";
+const apiDomain = "https://pythonpuff-girls.herokuapp.com/";
 
 
 // gif selectors
