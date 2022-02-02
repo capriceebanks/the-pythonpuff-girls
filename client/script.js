@@ -1,4 +1,4 @@
-const apiDomain = "http://localhost:8008/";
+const apiDomain = "https://fathomless-journey-97832.herokuapp.com/";
 
 
 // gif selectors
