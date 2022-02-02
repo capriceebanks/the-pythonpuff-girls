@@ -111,100 +111,12 @@ function createPosts(object) {
   
         newSection.append(gifArea);
       }
-
-      const newCommentSection = document.createElement("section");
-        newCommentSection.classList.add("newSection");
-        
-        const newCommentDiv = document.createElement("div");
-        newCommentDiv.classList.add("newCommentDiv");
-        
-        const newCommentLabel = document.createElement("label");
-        newCommentLabel.classList.add("newCommentLabel")
-        newCommentLabel.textContent = "Add your comments here!"
-        newCommentDiv.append(newCommentLabel);
-        
-        const newCommentTextArea = document.createElement("textarea")
-        newCommentTextArea.id = "newCommentTextArea"
-        newCommentDiv.append(newCommentTextArea);
-        
-        const addCommentButton = document.createElement("button");
-        addCommentButton.textContent = "Post Comment"
-        addCommentButton.id = "addCommentButton"
-        addCommentButton.classList.add("addCommentButton")
-        newCommentDiv.append(addCommentButton);
-
-        const recentComments = document.createElement("div")
-        newCommentDiv.append(recentComments)
-
-        newCommentSection.append(newCommentDiv);
-        newSection.append(newCommentSection);
-
-        newCommentSection.id = object[i].id;
-
+  
       newSection.id = object[i].id;
   
       document.querySelector("main").append(newSection);
-      
-      addCommentButton.addEventListener("click", (e) => {
-      
-          const data = {
-              comments: document.getElementById("newCommentTextArea").value,
-            };
-        
-            // if text area was empty when submitting nothing is posted
-            if (data.comments === "") {
-              return
-            }
-      
-            const options = {
-              method: "POST",
-              body: JSON.stringify(data),
-              headers: {
-                "Content-Type": "application/json",
-              },
-            };
-            fetch(`${apiDomain}posts/comments`, options)
-              .then((response) => response.json())
-              .then((obj) => {
-                createPosts(obj);
-                newCommentTextArea.value = "";
-              })
-        });
     }
-
-
   }
-
-//comments stuff
-
-// const commentButton = document.getElementsByClassName(addCommentButton)
-
-// commentButton.addEventListener("click", (e) => {
-    
-//     const data = {
-//         comments: document.getElementById("newCommentTextArea").value,
-//       };
-  
-//       // if text area was empty when submitting nothing is posted
-//       if (data.comments === "") {
-//         return
-//       }
-
-//       const options = {
-//         method: "POST",
-//         body: JSON.stringify(data),
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//       };
-//       fetch(`${apiDomain}posts/comments/new/1`, options)
-//         .then((response) => response.json())
-//         .then((obj) => {
-//           createPosts(obj);
-//           newCommentTextArea.value = "";
-//         })
-//   });
-
 
 
 addPostButton.addEventListener("click", (e) => {
@@ -223,8 +135,6 @@ addPostButton.addEventListener("click", (e) => {
     } else {
       data.gifUrl = document.getElementById("gifToAdd").src;
     }
-
-
     const options = {
       method: "POST",
       body: JSON.stringify(data),
