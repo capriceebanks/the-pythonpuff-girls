@@ -107,6 +107,18 @@ app.get("/gifs/:search", (req, res) => {
 
 
 //POST
+app.post("/posts/comments/new", (req, res) => {
+  const id = parseInt(req.body.id);
+  const comment = req.body.comments;
+  Post.addComment(id, comment);
+  const post = Post.getPost(id);
+  res.send([post.comments]);
+  res.statusCode = 201;
+});
+
+this.comments = [""];
+
+
 app.post("/posts/new", (req, res) => {
   
   Post.addPost(req.body);
