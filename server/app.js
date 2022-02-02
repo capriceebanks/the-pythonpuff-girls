@@ -126,30 +126,36 @@ app.post("/posts/new", (req, res) => {
   res.send(Post.all);
 });
 
-app.post("/posts/comments/new", (req, res) => {
-  const id = parseInt(req.body.id);
-  const comment = req.body.comments;
-  Post.addComment(id, comment);
-  const post = Post.getPost(id);
-  res.send([post.comments]);
-  res.statusCode = 201;
-});
+
 
 
 //UPDATE
-app.put("/posts/reactions/update/:id", (req, res) => {
 
-  try {
+app.put("/posts/emojis/update/heart", (req, res) => {
+  const id = parseInt(req.body.id);
+  
+  Post.updateHeartEmoji(id);
+  const post = Post.getPost(id);
+  res.send(post.emojis.heart);
+  res.statusCode = 201;
+});
 
-    const id = parseInt(req.params.id);
-    const targetEmoji = req.body.target;
-    Post.updateEmojis(id, targetEmoji);
-    res.send("updated");
+app.put("/posts/emojis/update/celebrate", (req, res) => {
+  const id = parseInt(req.body.id);
+  
+  Post.updateCelebrateEmoji(id);
+  const post = Post.getPost(id);
+  res.send(post.emojis.celebrate);
+  res.statusCode = 201;
+});
 
-  } catch (error) {
-    res.status = 404
-    res.send(err.message)
-  }
+app.put("/posts/emojis/update/laugh", (req, res) => {
+  const id = parseInt(req.body.id);
+  
+  Post.updateLaughEmoji(id);
+  const post = Post.getPost(id);
+  res.send(post.emojis.laugh);
+  res.statusCode = 201;
 });
 
 module.exports = app;

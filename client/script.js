@@ -113,35 +113,172 @@ function addGifPlusComments(jsonData) {
       gifArea.append(img);
       newSection.append(gifArea);
     }
+
+    //whole emoji section
+    const emojiSection = document.createElement("div");
+    emojiSection.classList.add("emojiSection");
+    newSection.append(emojiSection)
+
+    // emoji buttons
+    const heartEmojiButton = document.createElement("button");
+    heartEmojiButton.id = `heartEmojiButton_${jsonData.id}`
+    const heartEmoji = document.createElement("img");
+    heartEmoji.classList.add("heartEmoji");
+    heartEmojiButton.append(heartEmoji);
+    emojiSection.append(heartEmojiButton)
+    heartEmoji.src="images/emoji1.png";
+
+    const celebrateEmojiButton = document.createElement("button");
+    celebrateEmojiButton.id = `celebrateEmojiButton_${jsonData.id}`
+    const celebrateEmoji = document.createElement("img");
+    celebrateEmoji.classList.add("celebrateEmoji");
+    celebrateEmojiButton.append(celebrateEmoji);
+    emojiSection.append(celebrateEmojiButton)
+    celebrateEmoji.src="images/emoji2.png";
+
+    const laughEmojiButton = document.createElement("button");
+    laughEmojiButton.id = `laughEmojiButton_${jsonData.id}`
+    const laughEmoji = document.createElement("img");
+    laughEmoji.classList.add("laughEmoji");
+    laughEmojiButton.append(laughEmoji);
+    emojiSection.append(laughEmojiButton)
+    laughEmoji.src="images/emoji3.png";
+
+
+    // emoji counter list
+    const emojiCounterList = document.createElement("ul")
+    emojiCounterList.classList.add("emojiCounterList");
+    emojiSection.append(emojiCounterList)
+
+    const heartEmojiCounter = document.createElement("li");
+    heartEmojiCounter.id = `heartEmojiCounter_${jsonData.id}`
+    heartEmojiCounter.classList.add("heartEmojiCounter");
+    emojiCounterList.append(heartEmojiCounter)
+    heartEmojiCounter.textContent = jsonData.emojis.heart
+
+
+
+    const celebrateEmojiCounter = document.createElement("li");
+    celebrateEmojiCounter.id = `celebrateEmojiCounter_${jsonData.id}`
+    celebrateEmojiCounter.classList.add("celebrateEmojiCounter");
+    emojiCounterList.append(celebrateEmojiCounter)
+    celebrateEmojiCounter.textContent = jsonData.emojis.celebrate
+
+    const laughEmojiCounter = document.createElement("li");
+    laughEmojiCounter.id = `laughEmojiCounter_${jsonData.id}`
+    laughEmojiCounter.classList.add("laughEmojiCounter");
+    emojiCounterList.append(laughEmojiCounter)
+    laughEmojiCounter.textContent = jsonData.emojis.laugh
+
+    
+    heartEmojiButton.addEventListener('click', () => {    
+        heartEmojiCounter.textContent ++
+        const data = {
+            id: jsonData.id,
+            emojis: jsonData.emojis.heart,
+          };
+          const options = {
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          };
+          const emojiUrl = `${apiDomain}posts/emojis/update/heart`;
+          fetch(emojiUrl, options)      
+          .catch((error) => console.log(error));
+    }, { once: true }
+);
+
+    celebrateEmojiButton.addEventListener('click', () => {
+        celebrateEmojiCounter.textContent ++
+        const data = {
+            id: jsonData.id,
+            emojis: jsonData.emojis.celebrate,
+          };
+          const options = {
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          };
+          const emojiUrl = `${apiDomain}posts/emojis/update/celebrate`;
+          fetch(emojiUrl, options)      
+          .catch((error) => console.log(error));
+    }, { once: true }
+)
+
+    laughEmojiButton.addEventListener('click', () => {
+        laughEmojiCounter.textContent ++
+        const data = {
+            id: jsonData.id,
+            emojis: jsonData.emojis.laugh,
+          };
+          const options = {
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          };
+          const emojiUrl = `${apiDomain}posts/emojis/update/laugh`;
+          fetch(emojiUrl, options)      
+          .catch((error) => console.log(error));
+    }, { once: true }
+)
+
+
+
     const newCommentSection = document.createElement("section");
     newCommentSection.classList.add("newCommentSection");
     const newCommentDiv = document.createElement("div");
+
     newCommentDiv.classList.add("newCommentDiv");
     const newCommentLabel = document.createElement("label");
     newCommentLabel.classList.add("newCommentLabel")
     newCommentLabel.textContent = "Add your comments here!"
     newCommentDiv.append(newCommentLabel);
+
     const newCommentTextArea = document.createElement("textarea")
     newCommentTextArea.id = `newCommentTextArea_${jsonData.id}`
     newCommentDiv.append(newCommentTextArea);
+
     const addCommentButton = document.createElement("button");
     addCommentButton.textContent = "Post Comment"
     addCommentButton.id = `addCommentButton_${jsonData.id}`
     addCommentButton.classList.add("addCommentButton")
     newCommentDiv.append(addCommentButton);
+    
     const recentComments = document.createElement("div")
-    newCommentDiv.append(recentComments)
+    recentComments.id = `recentComments_${jsonData.id}`
+
+    const recentCommentsComment = document.createElement("p")
+    recentCommentsComment.textContent= jsonData.comments
+
+
+    addCommentButton.addEventListener('click', (e) => {
+        window.location.reload()
+    })
+    
+    
+    newCommentDiv.append(recentComments);
     newCommentSection.append(newCommentDiv);
     newSection.append(newCommentSection);
+    recentComments.append(recentCommentsComment);
     newCommentSection.id = jsonData.id;
     newSection.id = jsonData.id;
     document.querySelector("main").append(newSection);
     // Add a listener to our new 'add comment' button
     addCommentButton_addEventListener(jsonData.id);
   }
-  function addCommentButton_addEventListener(id)
-  {
+
+
+  // adds event listener to the post comment button
+  function addCommentButton_addEventListener(id) {
+
     const addCommentButton = document.querySelector(`#addCommentButton_${id}`);
+
     addCommentButton.addEventListener("click", (e) => {
       const data = {
         id: id,
@@ -161,13 +298,14 @@ function addGifPlusComments(jsonData) {
       const commentUrl = `${apiDomain}posts/comments/new`;
       fetch(commentUrl, options)      
       .then((response) => response.json())
-      .then((newPostArray) => {
-        addAllGifPlusComments(newPostArray);
+      .then((data) => {
         newCommentTextArea.value = "";
       })
       .catch((error) => console.log(error));
   });
   }
+
+  // adds a post to the main feed
   addPostButton.addEventListener("click", (e) => {
       
     window.location.reload()
