@@ -113,35 +113,73 @@ function addGifPlusComments(jsonData) {
       gifArea.append(img);
       newSection.append(gifArea);
     }
+
+    const emojiSection = document.createElement("div");
+    emojiSection.classList.add("emojiSection");
+    newSection.append(emojiSection)
+
+    const heartEmoji = document.createElement("img");
+    heartEmoji.classList.add("heartEmoji");
+    emojiSection.append(heartEmoji);
+    document.getElementsByClassName("heartEmoji").src="/images/emoji1.png";
+
+    const celebrateEmoji = document.createElement("img");
+    celebrateEmoji.classList.add("celebrateEmoji");
+    emojiSection.append(celebrateEmoji);
+
+    const laughEmoji = document.createElement("img");
+    laughEmoji.classList.add("laughEmoji");
+    emojiSection.append(laughEmoji);
+
+
     const newCommentSection = document.createElement("section");
     newCommentSection.classList.add("newCommentSection");
     const newCommentDiv = document.createElement("div");
+
     newCommentDiv.classList.add("newCommentDiv");
     const newCommentLabel = document.createElement("label");
     newCommentLabel.classList.add("newCommentLabel")
     newCommentLabel.textContent = "Add your comments here!"
     newCommentDiv.append(newCommentLabel);
+
     const newCommentTextArea = document.createElement("textarea")
     newCommentTextArea.id = `newCommentTextArea_${jsonData.id}`
     newCommentDiv.append(newCommentTextArea);
+
     const addCommentButton = document.createElement("button");
     addCommentButton.textContent = "Post Comment"
     addCommentButton.id = `addCommentButton_${jsonData.id}`
     addCommentButton.classList.add("addCommentButton")
     newCommentDiv.append(addCommentButton);
+    
     const recentComments = document.createElement("div")
-    newCommentDiv.append(recentComments)
+    recentComments.id = `recentComments_${jsonData.id}`
+
+    const recentCommentsComment = document.createElement("p")
+    recentCommentsComment.textContent= jsonData.comments
+
+    addCommentButton.addEventListener('click', (e) => {
+        window.location.reload()
+    })
+    
+    
+    newCommentDiv.append(recentComments);
     newCommentSection.append(newCommentDiv);
     newSection.append(newCommentSection);
+    recentComments.append(recentCommentsComment);
     newCommentSection.id = jsonData.id;
     newSection.id = jsonData.id;
     document.querySelector("main").append(newSection);
     // Add a listener to our new 'add comment' button
     addCommentButton_addEventListener(jsonData.id);
   }
-  function addCommentButton_addEventListener(id)
-  {
+
+
+  // adds event listener to the post comment button
+  function addCommentButton_addEventListener(id) {
+
     const addCommentButton = document.querySelector(`#addCommentButton_${id}`);
+
     addCommentButton.addEventListener("click", (e) => {
       const data = {
         id: id,
@@ -161,13 +199,14 @@ function addGifPlusComments(jsonData) {
       const commentUrl = `${apiDomain}posts/comments/new`;
       fetch(commentUrl, options)      
       .then((response) => response.json())
-      .then((newPostArray) => {
-        addAllGifPlusComments(newPostArray);
+      .then((data) => {
         newCommentTextArea.value = "";
       })
       .catch((error) => console.log(error));
   });
   }
+
+  // adds a post to the main feed
   addPostButton.addEventListener("click", (e) => {
       
     window.location.reload()
