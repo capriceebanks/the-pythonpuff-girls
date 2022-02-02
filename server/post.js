@@ -5,7 +5,7 @@ class Post {
     this.id = data.id;
     this.message = data.message;
     this.emojis = {emoji1: 0, emoji2: 0, emoji3: 0};
-    this.comments = []; 
+    this.comments = [""]; 
     this.gifUrl = data.gifUrl
   }
   static get all() {
