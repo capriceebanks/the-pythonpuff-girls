@@ -170,42 +170,63 @@ function addGifPlusComments(jsonData) {
     emojiCounterList.append(laughEmojiCounter)
     laughEmojiCounter.textContent = jsonData.emojis.laugh
 
-
     
     heartEmojiButton.addEventListener('click', () => {    
-
         heartEmojiCounter.textContent ++
-        
-
         const data = {
-            // id: id,
-            emojis: jsonData.emojis,
+            id: jsonData.id,
+            emojis: jsonData.emojis.heart,
           };
-          
           const options = {
-            method: "POST",
+            method: "PUT",
             body: JSON.stringify(data),
             headers: {
               "Content-Type": "application/json",
             },
           };
-
-          const emojiUrl = `${apiDomain}posts/emojis/update/${jsonData.id}`;
+          const emojiUrl = `${apiDomain}posts/emojis/update/heart`;
           fetch(emojiUrl, options)      
-          .then((response) => response.json()).catch((error) => console.log(error));
-
-
-        
+          .catch((error) => console.log(error));
     }, { once: true }
-    );
+);
 
     celebrateEmojiButton.addEventListener('click', () => {
-        jsonData.emojis.celebrate ++
-    })
+        celebrateEmojiCounter.textContent ++
+        const data = {
+            id: jsonData.id,
+            emojis: jsonData.emojis.celebrate,
+          };
+          const options = {
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          };
+          const emojiUrl = `${apiDomain}posts/emojis/update/celebrate`;
+          fetch(emojiUrl, options)      
+          .catch((error) => console.log(error));
+    }, { once: true }
+)
 
     laughEmojiButton.addEventListener('click', () => {
-        jsonData.emojis.laugh ++
-    })
+        laughEmojiCounter.textContent ++
+        const data = {
+            id: jsonData.id,
+            emojis: jsonData.emojis.laugh,
+          };
+          const options = {
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          };
+          const emojiUrl = `${apiDomain}posts/emojis/update/laugh`;
+          fetch(emojiUrl, options)      
+          .catch((error) => console.log(error));
+    }, { once: true }
+)
 
 
 

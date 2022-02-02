@@ -28,14 +28,21 @@ class Post {
     const targetPost = Post.getPost(id);
     targetPost.comments.push(comment)
   }
-  static updateEmojis(id, targetEmoji) {
+  static updateHeartEmoji(id) {
     const targetPost = Post.getPost(id);
-
-    targetPost.emojis[targetEmoji] ++
-
+    targetPost.emojis.heart ++
     return targetPost
   }
-
+  static updateCelebrateEmoji(id) {
+    const targetPost = Post.getPost(id);
+    targetPost.emojis.celebrate ++
+    return targetPost
+  }
+  static updateLaughEmoji(id) {
+    const targetPost = Post.getPost(id);
+    targetPost.emojis.laugh ++
+    return targetPost
+  }
 }
 
 module.exports = Post;
