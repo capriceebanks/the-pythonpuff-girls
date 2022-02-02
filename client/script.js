@@ -118,6 +118,7 @@ function addGifPlusComments(jsonData) {
     const emojiSection = document.createElement("div");
     emojiSection.classList.add("emojiSection");
     newSection.append(emojiSection)
+    
     const heartEmojiButton = document.createElement("button");
     const heartEmoji = document.createElement("img");
     heartEmoji.classList.add("heartEmoji");
@@ -140,20 +141,18 @@ function addGifPlusComments(jsonData) {
     laughEmoji.src="images/emoji3.png";
 
 
-    // let heartCounter = 0
-    // heartEmojiButton.addEventListener('click', () => {
-    //     heartCounter ++
-    //     jsonData.emojis.heart = heartCounter
-    // })
-    // console.log(jsonData.emojis.heart)
-    // let celebrateCounter = 0
-    // celebrateEmojiButton.addEventListener('click', () => {
-    //     celebrateCounter ++
-    // })
-    // let laughCounter = 0
-    // laughEmojiButton.addEventListener('click', () => {
-    //     laughCounter ++
-    // })
+    heartEmojiButton.addEventListener('click', () => {
+        jsonData.emojis.heart ++
+    })
+    console.log(jsonData.emojis.heart)
+
+    celebrateEmojiButton.addEventListener('click', () => {
+        jsonData.emojis.celebrate ++
+    })
+
+    laughEmojiButton.addEventListener('click', () => {
+        jsonData.emojis.laugh ++
+    })
 
 
 
