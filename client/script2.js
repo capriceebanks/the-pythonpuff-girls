@@ -25,6 +25,7 @@ function submitPost(e){
 
   const postData = {
     message: e.target.querySelector("#newPostText").value,
+    comments: e.target.querySelector("#newCommentTextArea").value,
 
   };
 
@@ -50,7 +51,7 @@ function appendPosts(posts){
 
 function appendPost(postData){
   const newPara = document.createElement('p');
-  newPara.textContent = `${postData.message}`
+  newPara.textContent = `${postData.message}`;
   const postsList = document.querySelector('.post-message');
   postsList.append(newPara);
 };

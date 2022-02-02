@@ -370,8 +370,6 @@ function addGifPlusComments(jsonData) {
 // init()
 
 
-
-
 //comments stuff
 // addCommentButton.addEventListener("click", (e) => {
       
@@ -399,40 +397,6 @@ function addGifPlusComments(jsonData) {
 //           newCommentTextArea.value = "";
 //         })
 //   });
-
-
-
-
-// const commentButton = document.getElementsByClassName(addCommentButton)
-
-// commentButton.addEventListener("click", (e) => {
-    
-//     const data = {
-//         comments: document.getElementById("newCommentTextArea").value,
-//       };
-  
-//       // if text area was empty when submitting nothing is posted
-//       if (data.comments === "") {
-//         return
-//       }
-
-//       const options = {
-//         method: "POST",
-//         body: JSON.stringify(data),
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//       };
-//       fetch(`${apiDomain}posts/comments/new/1`, options)
-//         .then((response) => response.json())
-//         .then((obj) => {
-//           createPosts(obj);
-//           newCommentTextArea.value = "";
-//         })
-//   });
-
-
-
 
 // //test
 // function addComment(e) {
