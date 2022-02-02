@@ -25,7 +25,6 @@ function submitPost(e){
 
   const postData = {
     message: e.target.querySelector("#newPostText").value,
-    comments: e.target.querySelector("#newCommentTextArea").value,
 
   };
 

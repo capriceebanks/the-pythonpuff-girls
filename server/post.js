@@ -28,9 +28,10 @@ class Post {
     const targetPost = Post.getPost(id);
     targetPost.comments.push(comment)
   }
-  static updateEmojis(id, targetEmoji) {
+  static updateEmojis(id, heart) {
     const targetPost = Post.getPost(id);
-    targetPost.emojis[targetEmoji] ++
+
+    targetPost.emojis.heart ++
 
     return targetPost
   }
