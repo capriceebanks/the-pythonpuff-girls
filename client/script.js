@@ -154,6 +154,10 @@ function addGifPlusComments(jsonData) {
         jsonData.emojis.laugh ++
     })
 
+    let heartCounter = 0 
+    heartEmojiButton.addEventListener('click', () => {
+      console.log(heartCounter++);
+    })
 
 
     const newCommentSection = document.createElement("section");
