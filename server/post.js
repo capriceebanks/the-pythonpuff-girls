@@ -26,11 +26,20 @@ class Post {
     const targetPost = Post.getPost(id);
     targetPost.comments.push(comment)
   }
-  static updateEmojis(id, heart) {
+
+  static updateHeartEmoji(id) {
     const targetPost = Post.getPost(id);
     targetPost.emojis.heart ++
-
     return targetPost
+  }
+  static updateCelebrateEmoji(id) {
+    const targetPost = Post.getPost(id);
+    targetPost.emojis.celebrate ++
+    return targetPost
+  }
+  static updateLaughEmoji(id) {
+    const targetPost = Post.getPost(id);
+    targetPost.emojis.laugh ++
   }
 
 }
