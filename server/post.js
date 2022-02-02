@@ -28,6 +28,7 @@ class Post {
     const targetPost = Post.getPost(id);
     targetPost.comments.push(comment)
   }
+
   static updateHeartEmoji(id) {
     const targetPost = Post.getPost(id);
     targetPost.emojis.heart ++
@@ -41,8 +42,8 @@ class Post {
   static updateLaughEmoji(id) {
     const targetPost = Post.getPost(id);
     targetPost.emojis.laugh ++
-    return targetPost
   }
+
 }
 
 module.exports = Post;

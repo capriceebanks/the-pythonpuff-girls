@@ -126,17 +126,11 @@ app.post("/posts/new", (req, res) => {
   res.send(Post.all);
 });
 
-app.post("/posts/comments/new", (req, res) => {
-  const id = parseInt(req.body.id);
-  const comment = req.body.comments;
-  Post.addComment(id, comment);
-  const post = Post.getPost(id);
-  res.send([post.comments]);
-  res.statusCode = 201;
-});
+
 
 
 //UPDATE
+
 app.put("/posts/emojis/update/heart", (req, res) => {
   const id = parseInt(req.body.id);
   

@@ -156,7 +156,7 @@ function addGifPlusComments(jsonData) {
     emojiCounterList.append(heartEmojiCounter)
     heartEmojiCounter.textContent = jsonData.emojis.heart
 
-    console.log(jsonData.emojis.heart)
+
 
     const celebrateEmojiCounter = document.createElement("li");
     celebrateEmojiCounter.id = `celebrateEmojiCounter_${jsonData.id}`
