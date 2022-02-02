@@ -127,14 +127,12 @@ app.post("/posts/new", (req, res) => {
 });
 
 
-
-
 //UPDATE
 app.put("/posts/emojis/update", (req, res) => {
 
   const id = parseInt(req.body.id);
   const targetEmoji = req.body.target;
-  Post.updateEmojis(id, targetEmoji);
+  // Post.updateEmojis(id, targetEmoji);
 
   const post = Post.getPost(id);
   res.send(post.emojis.heart);

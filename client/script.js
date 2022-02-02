@@ -194,8 +194,6 @@ function addGifPlusComments(jsonData) {
           const emojiUrl = `${apiDomain}posts/emojis/update`;
           fetch(emojiUrl, options)      
           .catch((error) => console.log(error));
-
-
         
     }, { once: true }
     );
