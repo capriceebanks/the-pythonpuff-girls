@@ -126,31 +126,22 @@ app.post("/posts/new", (req, res) => {
   res.send(Post.all);
 });
 
-app.post("/posts/comments/new", (req, res) => {
-  const id = parseInt(req.body.id);
-  const comment = req.body.comments;
-  Post.addComment(id, comment);
-  const post = Post.getPost(id);
-  res.send([post.comments]);
-  res.statusCode = 201;
-});
+
 
 
 //UPDATE
-app.put("/posts/emojis/update/:id", (req, res) => {
+app.put("/posts/emojis/update", (req, res) => {
 
-  try {
+  const id = parseInt(req.body.id);
+  const targetEmoji = req.body.target;
+  Post.updateEmojis(id, targetEmoji);
 
-    const id = parseInt(req.params.id);
-    console.log(id)
-    const targetEmoji = req.body.target;
-    Post.updateEmojis(id, targetEmoji);
-    res.send("updated");
+  const post = Post.getPost(id);
+  res.send(post.emojis.heart);
+  res.statusCode = 201;
 
-  } catch (error) {
-    res.status = 404
-    res.send(err.message)
-  }
+
+
 });
 
 module.exports = app;
