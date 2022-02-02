@@ -30,7 +30,6 @@ class Post {
   }
   static updateEmojis(id, targetEmoji) {
     const targetPost = Post.getPost(id);
-
     targetPost.emojis[targetEmoji] ++
 
     return targetPost

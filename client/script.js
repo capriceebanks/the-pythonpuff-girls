@@ -183,7 +183,7 @@ function addGifPlusComments(jsonData) {
           };
           
           const options = {
-            method: "POST",
+            method: "PUT",
             body: JSON.stringify(data),
             headers: {
               "Content-Type": "application/json",
@@ -192,7 +192,8 @@ function addGifPlusComments(jsonData) {
 
           const emojiUrl = `${apiDomain}posts/emojis/update/${jsonData.id}`;
           fetch(emojiUrl, options)      
-          .then((response) => response.json()).catch((error) => console.log(error));
+          .then((response) => response.json())
+          .catch((error) => console.log(error));
 
 
         

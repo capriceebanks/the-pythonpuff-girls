@@ -140,7 +140,6 @@ app.post("/posts/comments/new", (req, res) => {
 app.put("/posts/emojis/update/:id", (req, res) => {
 
   try {
-
     const id = parseInt(req.params.id);
     console.log(id)
     const targetEmoji = req.body.target;
