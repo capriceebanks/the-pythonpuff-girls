@@ -3,7 +3,7 @@
         "id": 1,
         "message": "Made a new API!",
         "reactions": {"emoji1":1, "emoji2": 1, "emoji3": 1},
-        "comments": "Wow!",
+        "comments": ["Wow!","hello"],
         "gifUrl": "https://media2.giphy.com/media/eXTue7sCt6ZvG/giphy.gif?cid=ecf05e47skx0fkaqqocsquceuuwyxwulgp0po0j43gb5yzvy&rid=giphy.gif&ct=g"
     }
 ]
