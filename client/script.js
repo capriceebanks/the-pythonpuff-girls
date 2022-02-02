@@ -121,15 +121,17 @@ function addGifPlusComments(jsonData) {
     const heartEmoji = document.createElement("img");
     heartEmoji.classList.add("heartEmoji");
     emojiSection.append(heartEmoji);
-    document.getElementsByClassName("heartEmoji").src="/images/emoji1.png";
+    heartEmoji.src="images/emoji1.png";
 
     const celebrateEmoji = document.createElement("img");
     celebrateEmoji.classList.add("celebrateEmoji");
     emojiSection.append(celebrateEmoji);
+    celebrateEmoji.src="images/emoji2.png";
 
     const laughEmoji = document.createElement("img");
     laughEmoji.classList.add("laughEmoji");
     emojiSection.append(laughEmoji);
+    laughEmoji.src="images/emoji3.png";
 
 
     const newCommentSection = document.createElement("section");
