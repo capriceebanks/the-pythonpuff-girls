@@ -156,7 +156,7 @@ function addGifPlusComments(jsonData) {
     emojiCounterList.append(heartEmojiCounter)
     heartEmojiCounter.textContent = jsonData.emojis.heart
 
-    console.log(jsonData.emojis.heart)
+
 
     const celebrateEmojiCounter = document.createElement("li");
     celebrateEmojiCounter.id = `celebrateEmojiCounter_${jsonData.id}`
@@ -178,21 +178,22 @@ function addGifPlusComments(jsonData) {
         
 
         const data = {
-            // id: id,
-            emojis: jsonData.emojis,
+            id: jsonData.id,
+            emojis: jsonData.emojis.heart,
+
           };
           
           const options = {
-            method: "POST",
+            method: "PUT",
             body: JSON.stringify(data),
             headers: {
               "Content-Type": "application/json",
             },
           };
 
-          const emojiUrl = `${apiDomain}posts/emojis/update/${jsonData.id}`;
+          const emojiUrl = `${apiDomain}posts/emojis/update`;
           fetch(emojiUrl, options)      
-          .then((response) => response.json()).catch((error) => console.log(error));
+          .catch((error) => console.log(error));
 
 
         
