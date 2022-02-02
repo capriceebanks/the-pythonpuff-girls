@@ -4,7 +4,7 @@ class Post {
   constructor(data) {
     this.id = data.id;
     this.message = data.message;
-    this.emojis = {emoji1: 0, emoji2: 0, emoji3: 0};
+    this.emojis = {heart: 0, celebrate: 0, laugh: 0};
     this.comments = [""]; 
     this.gifUrl = data.gifUrl
   }
@@ -28,12 +28,20 @@ class Post {
     const targetPost = Post.getPost(id);
     targetPost.comments.push(comment)
   }
-  static updateEmojis(id, targetEmoji) {
+
+  static updateHeartEmoji(id) {
     const targetPost = Post.getPost(id);
-
-    targetPost.emojis[targetEmoji] ++
-
+    targetPost.emojis.heart ++
     return targetPost
+  }
+  static updateCelebrateEmoji(id) {
+    const targetPost = Post.getPost(id);
+    targetPost.emojis.celebrate ++
+    return targetPost
+  }
+  static updateLaughEmoji(id) {
+    const targetPost = Post.getPost(id);
+    targetPost.emojis.laugh ++
   }
 
 }
