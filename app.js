@@ -8,11 +8,11 @@ const axios = require('axios').default;
 app.use(cors());
 app.use(express.json());
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://127.0.0.1:5504"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "http://127.0.0.1:5504"); // update to match the domain you will make the request from
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
 
 
 //check
@@ -114,22 +114,15 @@ app.post("/posts/new", (req, res) => {
   res.send(Post.all);
 });
 
-app.post("/posts/comments/new/:id", (req, res) => {
-  try {
-    const id = parseInt(req.params.id);
-    const comment = req.body.comment;
-    if (id > Post.all.length || !id) {
-      throw new Error("item not found");
-    }
-    Post.addComment(id, comment);
-    const updatedPost = Post.getPost(id);
-    res.statusCode = 201;
-    res.send(updatedPost);
-  } catch (error) {
-    res.statusCode = 404;
-    res.send(error.message);
-  }
+app.post("/posts/comments/new", (req, res) => {
+  const id = parseInt(req.body.id);
+  const comment = req.body.comments;
+  Post.addComment(id, comment);
+  const post = Post.getPost(id);
+  res.send([post.comments]);
+  res.statusCode = 201;
 });
+
 
 //UPDATE
 app.put("/posts/reactions/update/:id", (req, res) => {

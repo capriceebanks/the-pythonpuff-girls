@@ -1,12 +1,12 @@
-// const helpers = require("./helpers");
-
-
 const apiDomain = "http://localhost:8008/";
 
 
 // gif selectors
 const gifSearchButton = document.getElementById("gifSearchButton");
 const addGifButton = document.querySelector("#addGif");
+
+const textArea = document.getElementById("textArea");
+const counterPost = document.getElementById("charCounterPost");
 const addPostButton = document.getElementById("formSubmit");
 
 
@@ -65,8 +65,8 @@ document.getElementById("closeButton").addEventListener("click", () => {
     document.getElementById("gifBox").style.display = "none";
 });
 
-// Calculate remaining characters 
-// Calculate remaining characters 
+
+// Calculate remaining characters
 textArea.addEventListener("input", (e) => {
     const target = e.target;
     const maxLength = target.getAttribute("maxlength");
@@ -77,31 +77,130 @@ textArea.addEventListener("input", (e) => {
     addPostButton.disabled = false;
   });
 
- // TEST POST BUTTON
-function createPosts(object) {
-    for (let i = object.length - 1; i >= 0; i--) {
-      const newSection = document.createElement("section");
-      const post = document.createElement("div");
-      post.classList.add("post");
-      post.textContent = object[i].message;
-      newSection.append(post);
-      if (object[i].gifUrl) {
-        const gifArea = document.createElement("div");
-        gifArea.classList.add("GifAreaInPost");
-        const img = document.createElement("img");
-        img.classList.add("gifInPost");
-        img.src = object[i].gifUrl;
-        gifArea.append(img);
-        newSection.append(gifArea);
-      }
-      newSection.id = object[i].id;
-      document.querySelector("main").append(newSection);
-    }
+
+
+
+
+// TEST POST BUTTON
+
+
+
+
+
+function addAllGifPlusComments(newPostArray) {
+
+  for (let i = newPostArray.length - 1; i >= 0; i--) {
+    addGifPlusComments(newPostArray[i]);
   }
+}
+
+function addGifPlusComments(jsonData) {
+  const newSection = document.createElement("section");
+  newSection.classList.add("newSection");
+
+  const post = document.createElement("div");
+  post.classList.add("post");
+  post.textContent = jsonData.message;
+
+  newSection.append(post);
+
+
+  if (jsonData.gifUrl) {
+    const gifArea = document.createElement("div");
+    gifArea.classList.add("GifAreaInPost");
+
+    const img = document.createElement("img");
+    img.classList.add("gifInPost");
+    img.src = jsonData.gifUrl;
+
+    gifArea.append(img);
+
+    newSection.append(gifArea);
+  }
+
+  const newCommentSection = document.createElement("section");
+  newCommentSection.classList.add("newCommentSection");
+    
+  const newCommentDiv = document.createElement("div");
+  newCommentDiv.classList.add("newCommentDiv");
+    
+  const newCommentLabel = document.createElement("label");
+  newCommentLabel.classList.add("newCommentLabel")
+  newCommentLabel.textContent = "Add your comments here!"
+  newCommentDiv.append(newCommentLabel);
+    
+  const newCommentTextArea = document.createElement("textarea")
+  newCommentTextArea.id = `newCommentTextArea_${jsonData.id}`
+  newCommentDiv.append(newCommentTextArea);
+    
+  const addCommentButton = document.createElement("button");
+  addCommentButton.textContent = "Post Comment"
+  addCommentButton.id = `addCommentButton_${jsonData.id}`
+  addCommentButton.classList.add("addCommentButton")
+  newCommentDiv.append(addCommentButton);
+
+  const recentComments = document.createElement("div")
+  newCommentDiv.append(recentComments)
+
+  newCommentSection.append(newCommentDiv);
+  newSection.append(newCommentSection);
+
+  newCommentSection.id = jsonData.id;
+
+  newSection.id = jsonData.id;
+
+  document.querySelector("main").append(newSection);
+  
+  // Add a listener to our new 'add comment' button
+  addCommentButton_addEventListener(jsonData.id);
+}
+
+function addCommentButton_addEventListener(id)
+{
+  const addCommentButton = document.querySelector(`#addCommentButton_${id}`);
+  addCommentButton.addEventListener("click", (e) => {
+  
+    const data = {
+      id: id,
+      comments: document.querySelector(`#newCommentTextArea_${id}`).value,
+    
+    };
+
+    // if text area was empty when submitting nothing is posted
+    if (data.comments === "") {
+      return
+    }
+
+    const options = {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    const commentUrl = `${apiDomain}posts/comments/new`;
+    fetch(commentUrl, options)      
+    .then((response) => response.json())
+    .then((newPostArray) => {
+      addAllGifPlusComments(newPostArray);
+      newCommentTextArea.value = "";
+    })
+    .catch((error) => console.log(error));
+});
+
+      
+             
+
+}
+
+
 addPostButton.addEventListener("click", (e) => {
+
     const data = {
       message: document.getElementById("textArea").value,
     };
+
     // if text area was empty when submitting nothing is posted
     if (data.message === "") {
       return
@@ -112,6 +211,8 @@ addPostButton.addEventListener("click", (e) => {
     } else {
       data.gifUrl = document.getElementById("gifToAdd").src;
     }
+
+
     const options = {
       method: "POST",
       body: JSON.stringify(data),
@@ -121,8 +222,8 @@ addPostButton.addEventListener("click", (e) => {
     };
     fetch(`${apiDomain}posts/new`, options)
       .then((response) => response.json())
-      .then((obj) => {
-        createPosts(obj);
+      .then((newPostArray) => {
+        addAllGifPlusComments(newPostArray);
         textArea.value = "";
         if (document.getElementById("gifToAdd")) {
           document.getElementById("gifToAdd").remove();
@@ -130,3 +231,6 @@ addPostButton.addEventListener("click", (e) => {
       })
       .catch((error) => console.log(error));
   });
+
+
+
