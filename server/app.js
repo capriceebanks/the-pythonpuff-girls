@@ -121,8 +121,6 @@ app.post("/posts/new", (req, res) => {
 });
 
 
-
-
 //UPDATE
 
 app.put("/posts/emojis/update/heart", (req, res) => {

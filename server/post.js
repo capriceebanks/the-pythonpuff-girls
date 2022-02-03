@@ -19,9 +19,7 @@ class Post {
   }
   static getPost(id) {
     const posts = Post.all;
-
     const op = posts.filter(post => post.id === id)
-    
     return op[0]
   }
   static addComment(id, comment) {

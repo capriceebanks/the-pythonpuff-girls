@@ -9,7 +9,7 @@ const textArea = document.getElementById("textArea");
 const charCounter = document.getElementById("charCounter");
 const addPostButton = document.getElementById("formSubmit");
 
-//load all posts
+// load all posts on start up
 window.addEventListener('load', (e) => {
     fetch(`${apiDomain}posts`).then((res) => res.json()).then((data) => {
         addAllGifPlusComments(data);
@@ -232,9 +232,11 @@ function addGifPlusComments(jsonData) {
 
     const newCommentSection = document.createElement("section");
     newCommentSection.classList.add("newCommentSection");
+
     const newCommentDiv = document.createElement("div");
 
     newCommentDiv.classList.add("newCommentDiv");
+
     const newCommentLabel = document.createElement("label");
     newCommentLabel.classList.add("newCommentLabel")
     newCommentLabel.textContent = "Add your comments here!"
@@ -276,6 +278,8 @@ function addGifPlusComments(jsonData) {
     newCommentSection.id = jsonData.id;
     newSection.id = jsonData.id;
     document.querySelector("main").append(newSection);
+
+
     // Add a listener to our new 'add comment' button
     addCommentButton_addEventListener(jsonData.id);
   }
