@@ -12,8 +12,8 @@ describe('api', () => {
     describe('/posts', () => {
         let testData = [
             "Made a new API!",
-            ["Wow good job!!!", "Nice!", "What does your API do??"],
             {"heart":4, "celebrate": 3, "laugh": 1},
+            ["Wow good job!!!", "Nice!", "What does your API do??"],
             "https://media4.giphy.com/media/3o6UB3VhArvomJHtdK/giphy.gif?cid=a2b4cd36k1mdj1exmue34ziic08ykmew8x5edmxjg2nf1xbn&rid=giphy.gif&ct=g"
         ];
 
@@ -38,7 +38,7 @@ describe('api', () => {
         it('GET /posts/comments/1 responds with correct result', (done) => {
             request(app)
             .get('/posts/comments/1')
-            .expect(testData[1], done);
+            .expect(testData[2], done);
         });
 
     });
