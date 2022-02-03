@@ -19,8 +19,6 @@ body {
   color: #fff;
 }
 
-
-
 /*Nav bar*/
 .logo {
   height: 200px;
@@ -198,6 +196,7 @@ img {
     line-height: 1.7rem;
     padding: 0.6rem;
   }
+
   #form {
     background-color: grey;
     align-self: flex-end;
@@ -242,6 +241,7 @@ img {
     font-size: 1rem;
     color: white;
   }
+
   #addGif:hover {
     background-color: black;
   }
@@ -276,6 +276,7 @@ h3 {
 .heartEmoji {
   max-height: 50px;
 }
+
 
 .celebrateEmoji {
   max-height: 50px;
