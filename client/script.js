@@ -323,15 +323,16 @@ function addGifPlusComments(jsonData) {
   // adds a post to the main feed
   addPostButton.addEventListener("click", (e) => {
       
+      const data = {
+          message: document.getElementById("textArea").value,
+        };
+        
       // if text area was empty when submitting nothing is posted
       if (data.message === "") {
         return
       }
 
     window.location.reload()
-        const data = {
-        message: document.getElementById("textArea").value,
-      };
       // add the gif
       if (document.getElementById("gifToAdd") === null) {
         data.gifUrl = null;
