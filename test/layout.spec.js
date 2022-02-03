@@ -23,7 +23,7 @@
         });
 
         it('has script', () => {
-            let script = document.querySelector("head link[src='script.js']");
+            let script = document.querySelector("head script[rel='script']");
             expect(script).toBeTruthy();
         });
 
@@ -33,7 +33,7 @@
 
         it('has navigation bar', () => {
             let navBar = document.querySelector("body nav");
-            expect(nav).toBeTruthy();
+            expect(navBar).toBeTruthy();
         });
 
         it('has logo', () => {
@@ -55,13 +55,13 @@
             it("has an add gif button with text 'Add Gif'", () => {
                 let addGifBtn = document.querySelector("body main button[id='addGif']");
                 expect(addGifBtn).toBeTruthy();
-                expect(addGifBtn.value).toBe('Add Gif');
+                expect(addGifBtn.textContent).toBe('Add Gif');
             });
 
             it("has an add post button with text 'Add Post'", () => {
-                let addPostBtn = document.querySelector("body main button[id='formSubmit']");
+                let addPostBtn = document.querySelector("body main section[id='form'] button[id='formSubmit']");
                 expect(addPostBtn).toBeTruthy();
-                expect(addPostBtn.value).toBe('Add Post');
+                expect(addPostBtn.textContent).toBe('Add Post');
             });
 
             it('has footer', () => {
