@@ -71,7 +71,7 @@ gifSearchButton.addEventListener("click", (e) => {
             gif.src = imgSource;
             gif.id = "gifToAdd";
   
-            document.querySelector("form").append(gif);
+            document.getElementById("main-form").append(gif);
 
         });
         gifDisplay.append(temporaryImage);
