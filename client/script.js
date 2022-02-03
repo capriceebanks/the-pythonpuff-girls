@@ -309,7 +309,7 @@ function addGifPlusComments(jsonData) {
         if (data.comments === "") {
           return
         }
-        
+
       const commentUrl = `${apiDomain}posts/comments/new`;
       fetch(commentUrl, options)      
       .then((response) => response.json())
