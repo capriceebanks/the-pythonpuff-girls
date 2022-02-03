@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --watchAll",
     "bundle": "concurrently \"watchify ./client/script.js -o ./client/bundle.js\" \"python -m http.server\""
   },
   "repository": {
@@ -29,6 +29,8 @@
   },
   "devDependencies": {
     "concurrently": "^7.0.0",
+    "jest": "^27.4.7",
+    "supertest": "^6.2.2",
     "watchify": "^4.0.0"
   }
 }

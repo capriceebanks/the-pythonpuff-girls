@@ -28,35 +28,7 @@ app.get("/posts/:id", (req, res) => {
           throw new Error("item not found");
         }
         const post = Post.getPost(id);
-        res.send([post.name, post.title, post.message, post.comments, post.reactions, post.gifUrl]);
-      } catch (error) {
-        res.statusCode = 404;
-        res.send(error.message);
-      }
-});
-
-app.get("/posts/name/:id", (req, res) => {
-    try {
-        const id = parseInt(req.params.id);
-        if (id > Post.all.length || !id) {
-          throw new Error("item not found");
-        }
-        const post = Post.getPost(id);
-        res.send(post.name);
-      } catch (error) {
-        res.statusCode = 404;
-        res.send(error.message);
-      }
-  });
-
-app.get("/posts/title/:id", (req, res) => {
-    try {
-        const id = parseInt(req.params.id);
-        if (id > Post.all.length || !id) {
-          throw new Error("item not found");
-        }
-        const post = Post.getPost(id);
-        res.send(post.title);
+        res.send([post.message, post.comments, post.emojis, post.gifUrl]);
       } catch (error) {
         res.statusCode = 404;
         res.send(error.message);
