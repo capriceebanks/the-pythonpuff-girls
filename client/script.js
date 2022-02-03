@@ -247,23 +247,30 @@ function addGifPlusComments(jsonData) {
     newCommentDiv.append(newCommentTextArea);
 
     const addCommentButton = document.createElement("button");
-    addCommentButton.textContent = "Post Comment"
+    addCommentButton.textContent = "Send"
     addCommentButton.id = `addCommentButton_${jsonData.id}`
     addCommentButton.classList.add("addCommentButton")
     newCommentDiv.append(addCommentButton);
+
+    const commentsTitle = document.createElement("h4")
+    commentsTitle.textContent = "Recent Comments"
+    commentsTitle.classList.add("commentsTitle")
     
     const recentComments = document.createElement("div")
     recentComments.id = `recentComments_${jsonData.id}`
 
     const recentCommentsComment = document.createElement("p")
-    recentCommentsComment.textContent= jsonData.comments
+    recentCommentsComment.classList.add("recentCommentsComment")
 
+
+    recentCommentsComment.innerText= jsonData.comments.toString().split(",").join("\n")
 
     addCommentButton.addEventListener('click', (e) => {
         window.location.reload()
     })
     
     
+    newCommentDiv.append(commentsTitle);
     newCommentDiv.append(recentComments);
     newCommentSection.append(newCommentDiv);
     newSection.append(newCommentSection);
@@ -346,154 +353,60 @@ function addGifPlusComments(jsonData) {
     });
 
 
- 
+// ********************************************
+// SETUP
+
+const form = document.querySelector('.main-form');
+
+// Bind event listeners
+
+form.addEventListener('submit', submitPost);
 
 
+// Fetch all posts as soon as app is loaded
+getAllPosts();
+// ********************************************
+
+function getAllPosts(){
+    fetch('http://localhost:8008/posts')
+        .then(r => r.json())
+        .then(appendPosts)
+        .catch(console.warn)
+};
+
+// create
+function submitPost(e){
+  e.preventDefault();
+
+  const postData = {
+    message: e.target.querySelector("#newPostText").value,
+    comments: e.target.querySelector("#newCommentTextArea").value,
+
+  };
+
+  const options = { 
+      method: 'POST',
+      body: JSON.stringify(postData),
+      headers: {
+          "Content-Type": "application/json"
+      }
+  };
+
+  fetch('http://localhost:8008/posts/new', options)
+      .then(r => r.json())
+      .then(appendPost)
+      .catch(console.warn)
+};
+
+// helpers
+function appendPosts(posts){
+  posts.forEach(appendPost);
+};
 
 
-
-
-
-
-
-
-
-
-    // function createPosts(object) {
-    //     for (let i = object.length - 1; i >= 0; i--) {
-    //       const newSection = document.createElement("section");
-    //       newSection.classList.add("newSection");
-    //       const post = document.createElement("div");
-    //       post.classList.add("post");
-    //       post.textContent = object[i].message;
-    //       newSection.append(post);
-    //       if (object[i].gifUrl) {
-    //         const gifArea = document.createElement("div");
-    //         gifArea.classList.add("GifAreaInPost");
-    //         const img = document.createElement("img");
-    //         img.classList.add("gifInPost");
-    //         img.src = object[i].gifUrl;
-    //         gifArea.append(img);
-    //         newSection.append(gifArea);
-    //       }
-    //         const newCommentSection = document.createElement("section");
-    //         newCommentSection.classList.add("newSection");
-    //         const newCommentForm = document.createElement("form");
-    //         newCommentForm.classList.add("newCommentForm");
-    //         const newCommentLabel = document.createElement("label");
-    //         newCommentLabel.classList.add("newCommentLabel")
-    //         newCommentLabel.textContent = "Add your comments here!"
-    //         newCommentForm.append(newCommentLabel);
-    //         const newCommentTextArea = document.createElement("textarea")
-    //         newCommentTextArea.id = "newCommentTextArea"
-    //         newCommentForm.append(newCommentTextArea);
-    //         const addCommentButton = document.createElement("button");
-    //         addCommentButton.textContent = "Post Comment"
-    //         addCommentButton.id = "addCommentButton"
-    //         addCommentButton.classList.add("addCommentButton")
-    //         newCommentForm.append(addCommentButton);
-    //         const listOfComments = document.createElement("div")
-    //         newCommentForm.append(listOfComments)
-    //         newCommentSection.append(newCommentForm);
-    //         newSection.append(newCommentSection);
-    //         newCommentSection.id = object[i].id;
-    //         newSection.id = object[i].id;
-    //         document.querySelector("main").append(newSection);
-    //     }
-    //   }
-    // addPostButton.addEventListener("click", (e) => {
-    //     e.preventDefault()
-    //     const data = {
-    //       message: document.getElementById("textArea").value,
-    //     };
-    //     if (data.message === "") {
-    //       return
-    //     }
-    //     // add gif
-    //     if (document.getElementById("gifToAdd") === null) {
-    //       data.gifUrl = null;
-    //     } else {
-    //       data.gifUrl = document.getElementById("gifToAdd").src;
-    //     }
-    //     const options = {
-    //       method: "POST",
-    //       body: JSON.stringify(data),
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //     };
-    //     fetch(`${apiDomain}posts/new`, options)
-    //       .then((response) => response.json())
-    //       .then((obj) => {
-    //         createPosts(obj);
-    //         textArea.value = "";
-    //         if (document.getElementById("gifToAdd")) {
-    //           document.getElementById("gifToAdd").remove();
-    //         }
-    //         //only needed if init is being called
-    //         // window.location.reload()
-    //       })
-    //       .catch((error) => console.log(error));
-    //   });
-
-
-    
-// load all of the posts so they stay there when the page refreshes - stops gif button working???
-// function init() {
-//     fetch(`${apiDomain}posts`).then((res) => res.json()).then((data) => {
-//         createPosts(data);
-//     })
-//     .catch((error) => console.log(error));
-// }
-// init()
-
-
-//comments stuff
-// addCommentButton.addEventListener("click", (e) => {
-      
-//     const data = {
-//         comments: document.getElementById("newCommentTextArea").value,
-//       };
-  
-//       if (data.comments === "") {
-//         return
-//       }
-
-//       const options = {
-//         method: "POST",
-//         body: JSON.stringify(data),
-//         headers: {
-//           "Content-Type": "application/json",
-//         },
-//       };
-
-      
-//       fetch(`${apiDomain}posts/comments/new/${newSection.id}`, options)
-//         .then((response) => response.json())
-//         .then((obj) => {
-//           listOfComments.textContent = document.getElementById("newCommentTextArea").value
-//           newCommentTextArea.value = "";
-//         })
-//   });
-
-// //test
-// function addComment(e) {
-//     e.preventDefault();
-//     const commentEntry = document.getElementById("newCommentTextArea").value
-
-//     const options = {
-//         method: "POST",
-//         body: JSON.stringify({
-//             comments: commentEntry
-//         }),
-//         headers: {
-//         "Content-Type": "application/json",
-//         },
-//     }
-//     fetch(`${apiDomain}posts/comments/new`, options)
-//     setTimeout( () => {
-//         window.location.reload()
-//     }, 500);
-// }
-
-// newCommentForm.addEventListener('submit', addComment(e))
+function appendPost(postData){
+  const newPara = document.createElement('p');
+  newPara.textContent = `${postData.message}`;
+  const postsList = document.querySelector('.post-message');
+  postsList.append(newPara);
+};

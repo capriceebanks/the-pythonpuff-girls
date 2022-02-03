@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "poppins", sans-serif;
 }
 
 html {
@@ -39,17 +40,14 @@ body {
     z-index: 9;
 }
 
-/* Home link in nav bar */
-.links-container{
-    display: flex;
-    list-style: none;
+.search {
+  border-radius: 5px;
+  border: none;
 }
-.link{
-    padding: 10px;
-    margin-left: 10px;
-    text-decoration: none;
-    text-transform: capitalize;
-    color: #000;
+
+.search::placeholder {
+  color: black;
+  padding-left: 5px;
 }
 
 /*Main titles and ppg picture*/
@@ -57,7 +55,7 @@ body {
     margin-top: 60px;
     width: 100%;
     height: calc(100vh + 160px);
-    background: url("https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/v1555315082/shape/mentalfloss/screen_shot_2016-06-09_at_11.14.01_am.png?itok=YFL1uWGx");
+    background: url("images/backgroundimage.png");
     background-size: contain;
     background-repeat: no-repeat;
     display: flex;
@@ -70,7 +68,7 @@ body {
 }
 .heading{
     color: #FFD0E7;
-    text-shadow: 2px 2px 2px #ff0000, 4px 4px 2px #00ff00;
+    text-shadow: 4px 3px 3px #ff00bf, 6px 6px 4px #1eff00;
     text-transform: capitalize;
     font-size: 80px;
     line-height: 60px;
@@ -115,6 +113,8 @@ img {
     cursor: pointer;
     contain: content;
     padding-bottom: 4rem;
+    border-radius: 20px;
+    justify-content: centre;
   }
   .overlay button:hover {
     background-color: rgb(255, 224, 228);
@@ -129,8 +129,10 @@ img {
   #gifSearch label {
     color: rgb(2, 37, 3);
     font-weight: bold;
-    padding-left: 50px;
+    margin: 50px;
+
   }
+
   #gifSearch {
     width: 8rem;
     height: 1.2rem;
@@ -181,11 +183,14 @@ img {
     width: 100%;
     height: 20vh;
     border: 16px solid rgb(240, 240, 240);
+    border-radius: 20px;
   }
-  ::placeholder {
+
+  .textArea::placeholder {
     text-align: center;
-    color: #FFD0E7;
+    color: rgb(180, 180, 180);
   }
+
   form textarea {
     width: 100%;
     height: 100%;
@@ -195,6 +200,7 @@ img {
     font-size: 0.8rem;
     line-height: 1.7rem;
     padding: 0.6rem;
+    font-family: "poppins", sans-serif;
   }
 
   #form {
@@ -203,19 +209,14 @@ img {
     padding: 0.5rem 2rem;
     justify-self: center;
     border: none;
+    border-radius: 20px;
   }
   
 
   /* character counter*/
-  #charCounterPost,
-  #charCounterComment {
-    height: 1rem;
-    color: rgb(69, 73, 95);
-    font-size: 0.8rem;
+  #charCounter {
     text-align: right;
-    margin-right: 0.6rem;
-    margin-bottom: 0.2rem;
-    font-style: italic;
+    font-size: x-small;
   }
   
   /* add post button */
@@ -225,25 +226,31 @@ img {
     border: none;
     width: 100%;
     font-size: 1rem;
-    color: white;
+    color: black;
+    border-radius: 20px;
+    padding: 10px;
+    margin-bottom: 1.5rem;
   }
+
   .add-button:hover {
-    background-color: black;
+    background-color: white;
   }
 
   /*add gif button*/
   #addGif {
     height: 35px;
     background-color: #FFD0E7;
-    margin-top: 4rem;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
     border: none;
     width: 100%;
     font-size: 1rem;
-    color: white;
+    color: black;
+    border-radius: 20px;
   }
 
   #addGif:hover {
-    background-color: black;
+    background-color: white;
   }
   button:hover {
     cursor: pointer;
@@ -266,24 +273,109 @@ h3 {
   justify-self: center;
   text-align: center;
   border-style: solid;
-  border-width: 0.2px;
+  border-width: 1.5px;
   border-color: thistle;
   border-radius: 20px;
-  margin: 50px;
   padding: 10px;
+  margin: 3rem auto 0;
+  box-shadow: 2px 2px grey;
+}
+
+.post {
+  padding: 20px;
+}
+
+.gifInPost {
+  padding: 20px;
+}
+
+.emojiCounterList {
+  list-style: none;
+}
+
+li {
+  display: inline;
+  padding: 16px;
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }
 
 .heartEmoji {
-  max-height: 50px;
+  max-height: 40px;
 }
 
 
 .celebrateEmoji {
-  max-height: 50px;
+  max-height: 40px;
 }
 
 .laughEmoji {
-  max-height: 50px;
+  max-height: 40px;
 }
 
+.newCommentDiv {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  text-align: center;
+  border-style: solid;
+  border-width: 0.2px;
+  border-color: thistle;
+  border-radius: 20px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.newCommentLabel {
+  padding: 0.2rem 0.8rem;
+  margin: 1rem 0.2rem;
+}
+
+.newCommentTextArea {
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  resize: none;
+  font-size: 0.8rem;
+  line-height: 1.7rem;
+  /* padding: 0.6rem; */
+  background-color: grey;
+  align-self: flex-end;
+  padding: 0.5rem 2rem;
+  justify-self: center;
+  border: 16px solid lightgray;
+  
+}
+
+.addCommentButton {
+  padding: 0.2rem 0.8rem;
+  margin: 1rem 0.2rem;
+  border-radius: 5px;
+  border: 2px white solid;
+  background-color: #FFD0E7;
+}
+
+.addCommentButton:hover {
+  background-color: lightgrey;
+}
+
+.recentCommentsComment {
+  justify-self: center;
+  text-align: center;
+  border-width: 0.2px;
+  border-color: thistle;
+  border-top-style: solid;
+  border-left-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
+  padding-top: 10px;
+}
 
