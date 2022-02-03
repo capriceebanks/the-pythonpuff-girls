@@ -368,7 +368,7 @@ getAllPosts();
 // ********************************************
 
 function getAllPosts(){
-    fetch('http://localhost:8008/posts')
+    fetch(`${apiDomain}/posts`)
         .then(r => r.json())
         .then(appendPosts)
         .catch(console.warn)
@@ -392,7 +392,7 @@ function submitPost(e){
       }
   };
 
-  fetch('http://localhost:8008/posts/new', options)
+  fetch(`${apiDomain}/posts/new`, options)
       .then(r => r.json())
       .then(appendPost)
       .catch(console.warn)
