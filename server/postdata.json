@@ -2,8 +2,36 @@
     {
         "id": 1,
         "message": "Made a new API!",
-        "emojis": {"heart":1, "celebrate": 1, "laugh": 1},
-        "comments": ["wow", "hello"],
-        "gifUrl": "https://media2.giphy.com/media/eXTue7sCt6ZvG/giphy.gif?cid=ecf05e47skx0fkaqqocsquceuuwyxwulgp0po0j43gb5yzvy&rid=giphy.gif&ct=g"
+        "emojis": {"heart":4, "celebrate": 3, "laugh": 1},
+        "comments": ["Wow good job!!!", "Nice!", "What does your API do??"],
+        "gifUrl": "https://media4.giphy.com/media/3o6UB3VhArvomJHtdK/giphy.gif?cid=a2b4cd36k1mdj1exmue34ziic08ykmew8x5edmxjg2nf1xbn&rid=giphy.gif&ct=g"
+    },
+    {
+        "id": 2,
+        "message": "Feeling like the world is at my feet and ready to be conquered and programmed",
+        "emojis": {"heart":1, "celebrate": 5, "laugh": 2},
+        "comments": ["Yesss", "We love to see it <3"],
+        "gifUrl": "https://media4.giphy.com/media/OOSVVIAvMtyLHhLDrW/giphy.gif?cid=a2b4cd36l03lond9y5kgposstmdm7772i8orn5wti793j13o&rid=giphy.gif&ct=g"
+    },
+    {
+        "id": 3,
+        "message": "I HATE TESTING!!! My brain:",
+        "emojis": {"heart":1, "celebrate": 0, "laugh": 4},
+        "comments": ["Me tooo", "Twinning", "But it has to be done"],
+        "gifUrl": "https://media4.giphy.com/media/26tPdwMm4jyClgxTq/giphy.gif?cid=a2b4cd36heapzhu5zxm7hlmw82x7etriby6q7i7volmnlgcn&rid=giphy.gif&ct=g"
+    },
+    {
+        "id": 4,
+        "message": "When Git messes up and you have a deadline:",
+        "emojis": {"heart":0, "celebrate": 0, "laugh": 6},
+        "comments": ["LMAO", "So relatable", "ITS ALWAYS GIT"],
+        "gifUrl": "https://media2.giphy.com/media/3o6ozsZE22s7LaRfAQ/giphy.gif?cid=a2b4cd36eq3tsfi2419nlgati7dyygshw04bpdtpcs295rci&rid=giphy.gif&ct=g"
+    },
+    {
+        "id": 5,
+        "message": "Keep calm and keep coding.",
+        "emojis": {"heart": 4, "celebrate": 1, "laugh": 0},
+        "comments": ["You've motivated me!"],
+        "gifUrl": "https://media1.giphy.com/media/3o7btSlEkVbvtjkW3K/giphy.gif?cid=a2b4cd36rgf237ilbm6gyokjlcc225huzfr0lcnh1do829gp&rid=giphy.gif&ct=g"
     }
 ]

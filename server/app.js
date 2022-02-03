@@ -8,12 +8,6 @@ const axios = require('axios').default;
 app.use(cors());
 app.use(express.json());
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://127.0.0.1:5501"); // update to match the domain you will make the request from
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
-
 
 //check
 app.get("/", (req, res) => {
@@ -34,35 +28,7 @@ app.get("/posts/:id", (req, res) => {
           throw new Error("item not found");
         }
         const post = Post.getPost(id);
-        res.send([post.name, post.title, post.message, post.comments, post.reactions, post.gifUrl]);
-      } catch (error) {
-        res.statusCode = 404;
-        res.send(error.message);
-      }
-});
-
-app.get("/posts/name/:id", (req, res) => {
-    try {
-        const id = parseInt(req.params.id);
-        if (id > Post.all.length || !id) {
-          throw new Error("item not found");
-        }
-        const post = Post.getPost(id);
-        res.send(post.name);
-      } catch (error) {
-        res.statusCode = 404;
-        res.send(error.message);
-      }
-  });
-
-app.get("/posts/title/:id", (req, res) => {
-    try {
-        const id = parseInt(req.params.id);
-        if (id > Post.all.length || !id) {
-          throw new Error("item not found");
-        }
-        const post = Post.getPost(id);
-        res.send(post.title);
+        res.send([post.message, post.emojis, post.comments, post.gifUrl]);
       } catch (error) {
         res.statusCode = 404;
         res.send(error.message);
@@ -125,8 +91,6 @@ app.post("/posts/new", (req, res) => {
   res.statusCode = 201;
   res.send(Post.all);
 });
-
-
 
 
 //UPDATE
