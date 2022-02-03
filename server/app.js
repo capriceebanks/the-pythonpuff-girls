@@ -28,7 +28,7 @@ app.get("/posts/:id", (req, res) => {
           throw new Error("item not found");
         }
         const post = Post.getPost(id);
-        res.send([post.message, post.comments, post.emojis, post.gifUrl]);
+        res.send([post.message, post.emojis, post.comments, post.gifUrl]);
       } catch (error) {
         res.statusCode = 404;
         res.send(error.message);
