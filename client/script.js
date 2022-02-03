@@ -156,8 +156,6 @@ function addGifPlusComments(jsonData) {
     emojiCounterList.append(heartEmojiCounter)
     heartEmojiCounter.textContent = jsonData.emojis.heart
 
-    console.log(jsonData.emojis.heart)
-
     const celebrateEmojiCounter = document.createElement("li");
     celebrateEmojiCounter.id = `celebrateEmojiCounter_${jsonData.id}`
     celebrateEmojiCounter.classList.add("celebrateEmojiCounter");
@@ -245,23 +243,30 @@ function addGifPlusComments(jsonData) {
     newCommentDiv.append(newCommentTextArea);
 
     const addCommentButton = document.createElement("button");
-    addCommentButton.textContent = "Post Comment"
+    addCommentButton.textContent = "Send"
     addCommentButton.id = `addCommentButton_${jsonData.id}`
     addCommentButton.classList.add("addCommentButton")
     newCommentDiv.append(addCommentButton);
+
+    const commentsTitle = document.createElement("h4")
+    commentsTitle.textContent = "Recent Comments"
+    commentsTitle.classList.add("commentsTitle")
     
     const recentComments = document.createElement("div")
     recentComments.id = `recentComments_${jsonData.id}`
 
     const recentCommentsComment = document.createElement("p")
-    recentCommentsComment.textContent= jsonData.comments
+    recentCommentsComment.classList.add("recentCommentsComment")
 
+
+    recentCommentsComment.innerText= jsonData.comments.toString().split(",").join("\n")
 
     addCommentButton.addEventListener('click', (e) => {
         window.location.reload()
     })
     
     
+    newCommentDiv.append(commentsTitle);
     newCommentDiv.append(recentComments);
     newCommentSection.append(newCommentDiv);
     newSection.append(newCommentSection);
