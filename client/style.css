@@ -379,3 +379,17 @@ button, input[type="submit"], input[type="reset"] {
   padding-top: 10px;
 }
 
+.footer{
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5vw;
+  background: #FFD0E7;
+  z-index: 9;
+
+}
