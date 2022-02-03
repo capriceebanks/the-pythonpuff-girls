@@ -291,21 +291,25 @@ function addGifPlusComments(jsonData) {
     const addCommentButton = document.querySelector(`#addCommentButton_${id}`);
 
     addCommentButton.addEventListener("click", (e) => {
-      const data = {
-        id: id,
-        comments: document.querySelector(`#newCommentTextArea_${id}`).value,
-      };
-      // if text area was empty when submitting nothing is posted
-      if (data.comments === "") {
-        return
-      }
-      const options = {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
+
+        
+        const data = {
+            id: id,
+            comments: document.querySelector(`#newCommentTextArea_${id}`).value,
+        };
+        const options = {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        };
+
+        // if text area was empty when submitting nothing is posted
+        if (data.comments === "") {
+          return
+        }
+        
       const commentUrl = `${apiDomain}posts/comments/new`;
       fetch(commentUrl, options)      
       .then((response) => response.json())
@@ -319,14 +323,15 @@ function addGifPlusComments(jsonData) {
   // adds a post to the main feed
   addPostButton.addEventListener("click", (e) => {
       
-    window.location.reload()
-        const data = {
-        message: document.getElementById("textArea").value,
-      };
       // if text area was empty when submitting nothing is posted
       if (data.message === "") {
         return
       }
+
+    window.location.reload()
+        const data = {
+        message: document.getElementById("textArea").value,
+      };
       // add the gif
       if (document.getElementById("gifToAdd") === null) {
         data.gifUrl = null;
