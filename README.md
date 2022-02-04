@@ -27,6 +27,10 @@
 
 ### Challenges
 
-## Bugs
+## Bugs## Bugs
+- Search bar is not functioning
+- Single emojis are able to be clicked more than once
 
 ## Future Features
+- Adding a title and anonymous username to the posts
+- Users can respond to posts with a gif
