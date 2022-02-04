@@ -101,7 +101,7 @@ describe('api', () => {
     it('POST /posts/comments/new responds with correct result', (done) => {
         request(app)
         .post('/posts/comments/new')
-        .expect('Content-Type', html, done);
+        .expect('Content-Type', /html/, done);
     });
 
 });
