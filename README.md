@@ -28,7 +28,11 @@
 
 ### Challenges
 
+<<<<<<< HEAD
 ## Bugs
+=======
+## Bugs## Bugs
+>>>>>>> 5364b3792c87f56fae1e23165c2456fbfe5258b1
 - Search bar is not functioning
 - Single emojis are able to be clicked more than once
 
