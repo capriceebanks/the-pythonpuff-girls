@@ -4,7 +4,8 @@
 
 const fs = require('fs');
 const path = require('path');
-const script = fs.readFileSync(path.resolve(__dirname, '../client/script.js'), 'utf8');
+const script = require('../client/script');
+
 
 describe('script.js', () => {
     beforeEach(() => {
@@ -13,7 +14,7 @@ describe('script.js', () => {
 
     describe('posts load on start', () => {
         it('fetches posts from api', () => {
-            expect(addAllGifPlusComments).toHaveBeenCalledWith(data);
+            expect(script.addAllGifPlusComments).toHaveBeenCalledWith(data);
         });
     })
 
