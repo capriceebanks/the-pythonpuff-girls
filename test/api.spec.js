@@ -2,7 +2,6 @@
  * @jest-environment jsdom
  */
 
-
 const request = require('supertest');
 const app = require('../server/app');
 const data = require('../server/postdata.json')
