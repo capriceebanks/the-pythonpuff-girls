@@ -2,6 +2,8 @@
  A anonymous journalling website for female coders to share their coding adventures. 
  Users can anonymously write posts and add gifs, comment on other posts, and react with emojis. 
 
+  ![](webpage.gif)
+
 ## Installation and Usage
 - Clone or download the repo.
 - Install all dev dependencies using ```npm install```
@@ -24,18 +26,19 @@
 
 ## Wins and Challenges
 ### Wins
-
+- All features functioning 
+- Working collaboratively 
 
 ### Challenges
+- Git issues - ended up mob programming for the majority of the project
 
-<<<<<<< HEAD
 ## Bugs
-=======
-## Bugs## Bugs
->>>>>>> 5364b3792c87f56fae1e23165c2456fbfe5258b1
-- Search bar is not functioning
-- Single emojis are able to be clicked more than once
+- Single emojis are able to be clicked more than once on reload
+- When comments are made and they contain commas, the commas are replaces with new lines
+- When the screen is resized elements are not in the correct format
+- Text areas are able to be resized even though the resize property was set to none in CSS
 
 ## Future Features
 - Adding a title and anonymous username to the posts
 - Users can respond to posts with a gif
+- Users to be able to search for keywords in posts
