@@ -2,7 +2,7 @@
  A anonymous journalling website for female coders to share their coding adventures. 
  Users can anonymously write posts and add gifs, comment on other posts, and react with emojis. 
 
-  ![](./images/webpage.gif)
+  ![](./webpage.gif)
 
 ## Installation and Usage
 - Clone or download the repo.
