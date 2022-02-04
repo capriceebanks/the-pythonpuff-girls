@@ -12,6 +12,11 @@
     });
 
     describe('head', () => {
+        it('has title', () => {
+            let title = document.querySelector("head title");
+            expect(title).toBeTruthy();
+        });
+
         it('has favicon', () => {
             let favicon = document.querySelector("head link[rel='shortcut icon']");
             expect(favicon).toBeTruthy();
@@ -44,6 +49,21 @@
         it('has search bar', () => {
             let searchBar = document.querySelector("body nav input");
             expect(searchBar).toBeTruthy();
+        });
+
+        it('has small part of header', () => {
+            let smallHeader = document.querySelector("body header[class='header'] div h1[class='heading'] span[class='small']");
+            expect(smallHeader).toBeTruthy();
+        });
+        
+        it('has big part of header', () => {
+            let bigHeader = document.querySelector("body header[class='header'] div h1[class='heading'] span");
+            expect(bigHeader).toBeTruthy();
+        });
+
+        it('has subheader', () => {
+            let subHeader = document.querySelector("body header[class='header'] div p[class='subheader']");
+            expect(subHeader).toBeTruthy();
         });
 
         describe('main', () => {

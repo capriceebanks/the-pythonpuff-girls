@@ -148,8 +148,9 @@ img {
     overflow-y: scroll;
   }
   .gif-img {
-    height: 200px;
+    height: 150px;
     display: block;
+
   }
 
   #gifToAdd {
@@ -195,7 +196,7 @@ img {
   }
 
   #form {
-    background-color: grey;
+    background-color: rgb(187, 184, 184);
     align-self: flex-end;
     padding:  1rem;
     justify-self: center;
