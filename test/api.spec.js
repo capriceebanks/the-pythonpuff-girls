@@ -1,6 +1,40 @@
 const request = require('supertest');
 const app = require('../server/app');
 jest.setTimeout(50000)
+global.fetch = require('jest-fetch-mock');
+
+describe('app', () => {
+    beforeEach(() => {
+        document.documentElement.innerHTML = html.toString();
+    })
+    afterEach(() => {
+        fetch.resetMocks();
+    })
+    describe('submitaddGifPlusCommentsComment', () => {
+        test('it makes a post request to /posts/comments/new with the comment data', () => {
+            const fakeSubmitEvent = {
+                preventDefault: jest.fn(),
+                target: {
+                    name: { value: 'Bob' },
+                    age: { value: 4 }
+                }
+            }
+            app.addGifPlusComments(fakeSubmitEvent);
+            expect(fetch.mock.calls[0][1]).toHaveProperty('method', 'POST');
+            expect(fetch.mock.calls[0][1]).toHaveProperty('body', JSON.stringify({ name: "Bob", age: 4 }));
+        })
+    })
+    describe('appendCat', () => {
+        test('it renders a new li on the page with the cat data', () => {
+            const liCount = document.querySelectorAll('li').length;
+            app.appendCat({ name: 'Testy', age: 42 });
+            const newLiCount = document.querySelectorAll('li').length;
+            expect(newLiCount).toEqual(liCount + 1)
+            expect(document.querySelector('section#cats').textContent).toContain("Testy");
+            expect(document.querySelector('section#cats').textContent).toContain(42);
+        })
+    })
+})
 
 describe('api', () => {
 
